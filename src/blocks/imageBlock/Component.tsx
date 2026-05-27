@@ -31,8 +31,8 @@ export default function ImageBlockComponent({
 
   const heightClass = {
     small: 'h-[300px]',
-    medium: 'h-[450px]',
-    large: 'h-[650px]',
+    medium: 'h-[700px]',
+    large: 'h-[700px]',
   }
 
   const ImageContent = (
@@ -43,7 +43,7 @@ export default function ImageBlockComponent({
         alt={title || 'Image'}
         fill
         priority
-        className="hidden object-cover md:block"
+        className="hidden  md:block"
       />
 
       {/* MOBILE IMAGE */}
