@@ -87,6 +87,7 @@ const jsxConverters = ({ pageData }: { pageData?: any }): JSXConvertersFunction<
         PartnerCarouselBlock: ({ node }: { node: SerializedBlockNode<any> }) => (
           <PartnerCarousel {...node.fields} />
         ),
+        
       },
     }
   }

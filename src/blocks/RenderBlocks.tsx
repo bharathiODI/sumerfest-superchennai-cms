@@ -11,13 +11,13 @@ import { PerformerShowcaseComponent } from './performerShowcase/Component'
 import { StatsBlockComponent } from './stats/Component'
 import { WeekTimelineComponent } from './weekTimeline/Component'
 import ImageBlockComponent from './imageBlock/Component'
+import AboutEventBlockComponent from './AboutEvent/Component'
 
 const blockComponents: {
   [key: string]: React.FC<any>
 } = {
   formBlock: FormBlock,
   mediaBlock: MediaBlock,
-  // eventListing: EventListingBlock,
   weekTimeline: WeekTimelineComponent,
   performerShowcase: PerformerShowcaseComponent,
   partnerLogos: PartnerLogosComponent,
@@ -25,9 +25,8 @@ const blockComponents: {
   galleryBlock: GalleryBlockComponent,
   ctaBlock: CTABlockComponent,
   heroSliderBlock: HeroSliderBlock,
-  // PartnerCarouselBlock:PartnerCarousel
-  ImageBlock:ImageBlockComponent
-  
+  ImageBlock: ImageBlockComponent,
+  AboutEventBlock: AboutEventBlockComponent,
 }
 
 export const RenderBlocks: React.FC<{
