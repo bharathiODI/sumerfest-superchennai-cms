@@ -30,6 +30,7 @@ import {
   lexicalEditor,
 } from '@payloadcms/richtext-lexical'
 import { PartnerCarouselBlock } from '@/blocks/Partners/config'
+import { AboutEventBlock } from '@/blocks/AboutEvent/config'
 
 export const SummerFestEvents: CollectionConfig<'summer-events'> = {
   slug: 'summer-events',
@@ -100,8 +101,8 @@ export const SummerFestEvents: CollectionConfig<'summer-events'> = {
                         MediaBlock,
                         VideoBlock,
                         EventRegistrationBlock,
-                        // PartnerLogos,
                         PartnerCarouselBlock,
+                        AboutEventBlock,
                       ],
                     }),
                     FixedToolbarFeature(),

@@ -8,6 +8,7 @@ import ImageBlock from './blocks/ImageBlock'
 import MediaBlock from './blocks/MediaBlock'
 import VideoBlock from './blocks/VideoBlock'
 import ImageBlockComponent from '@/blocks/imageBlock/Component'
+import AboutEventBlockComponent from '@/blocks/AboutEvent/Component'
 
 export function renderNode(node: any, idx: number): React.ReactNode {
   /* ------------------------------------------------
@@ -100,6 +101,10 @@ export function renderNode(node: any, idx: number): React.ReactNode {
 
       if (blockType === 'imageBlock') {
         return <ImageBlockComponent key={idx} {...node.fields} />
+      }
+
+      if (blockType === 'aboutEventBlock') {
+        return <AboutEventBlockComponent key={idx} {...node.fields} />
       }
 
       return null
