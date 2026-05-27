@@ -1018,6 +1018,7 @@ export interface EventFormField {
 export interface SummerRegistration {
   id: number;
   summer: number | SummerEvent;
+  week?: (number | null) | FestivalWeek;
   status?: ('pending' | 'confirmed' | 'rejected') | null;
   name?: string | null;
   email?: string | null;
@@ -2101,6 +2102,7 @@ export interface EventFormFieldsSelect<T extends boolean = true> {
  */
 export interface SummerRegistrationsSelect<T extends boolean = true> {
   summer?: T;
+  week?: T;
   status?: T;
   name?: T;
   email?: T;

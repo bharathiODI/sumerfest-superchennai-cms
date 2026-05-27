@@ -1,19 +1,3 @@
-// import { NextResponse } from 'next/server'
-// import { getPayload } from 'payload'
-// import config from '@payload-config'
-
-// export async function GET() {
-
-//   const payload = await getPayload({ config })
-
-//   const registrations = await payload.find({
-//     collection: 'summer-registrations',
-//     limit: 100,
-//   })
-
-//   return NextResponse.json(registrations)
-// }
-
 import { NextResponse } from 'next/server'
 import { getPayload } from 'payload'
 import config from '@payload-config'
@@ -23,15 +7,11 @@ export async function GET() {
     const payload = await getPayload({
       config,
     })
-
     const registrations = await payload.find({
       collection: 'summer-registrations',
-
       limit: 100,
-
-      depth: 1,
+      depth: 3,
     })
-
     return NextResponse.json({
       success: true,
       docs: registrations.docs,

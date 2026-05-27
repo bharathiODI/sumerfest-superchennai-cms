@@ -34,6 +34,16 @@ export const SummerRegistrations: CollectionConfig = {
         width: '50%',
       },
     },
+    {
+      name: 'week',
+      label: 'Festival Week',
+      type: 'relationship',
+      relationTo: 'festival-weeks',
+
+      admin: {
+        hidden: true,
+      },
+    },
 
     {
       name: 'status',
