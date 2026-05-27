@@ -39,12 +39,12 @@ export default async function Page() {
       </div>
 
       <div className="container mb-8">
-        <PageRange
+        {/* <PageRange
           collection="posts"
           currentPage={posts.page}
           limit={12}
           totalDocs={posts.totalDocs}
-        />
+        /> */}
       </div>
 
       <CollectionArchive

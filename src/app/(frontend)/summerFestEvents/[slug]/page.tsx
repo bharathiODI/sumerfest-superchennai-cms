@@ -63,8 +63,9 @@ export default async function ArrataiPage({ params: paramsPromise }: Args) {
 export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
   const { slug = '' } = await paramsPromise
   const summerFestEvents = await queryPostBySlug({ slug })
-
-  return generateMeta({ doc: summerFestEvents })
+  return generateMeta({
+    doc: summerFestEvents as any,
+  })
 }
 
 const queryPostBySlug = cache(async ({ slug }: { slug: string }) => {

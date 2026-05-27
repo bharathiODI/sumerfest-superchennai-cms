@@ -14,7 +14,7 @@ export default async function Page() {
   const payload = await getPayload({ config: configPromise })
 
   const eventsRes = await payload.find({
-    collection: 'summerFestEvents',
+    collection: 'summer-events',
     limit: 100,
     sort: '-createdAt',
   })
