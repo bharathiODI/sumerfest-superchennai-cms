@@ -1,0 +1,64 @@
+COLECTIONS 
+
+
+SummerFestPages/
+  SummerFestEvents/
+  Performers/
+  Partners/
+  Venues/
+
+
+ BLOCKS WRKS 
+  festivalHero/
+  eventListing/
+  weekTimeline/
+  performerShowcase/
+  partnerLogos/
+  stats/
+  gallery/
+  cta/
+
+
+
+HOME PAGE BLOCKS 
+  Hero Banner
+Festival Intro
+Statistics
+Week-wise Timeline
+Featured Events
+Performers
+Partners
+CTA
+
+
+Recommended Event Categories
+
+
+options: [
+  'Music',
+  'Food',
+  'Street Culture',
+  'Nightlife',
+  'Wellness',
+  'Cinema',
+  'Heritage',
+  'Workshop',
+]
+
+Recommended Event Status
+
+Upcoming
+Live
+Completed
+Cancelled
+
+
+Recommended URL Structure
+
+/summer-fest
+/summer-fest/events
+/summer-fest/events/street-jam-pondy-bazaar
+/summer-fest/performers/tm-krishna
+/summer-fest/venues/marina-beach
+
+

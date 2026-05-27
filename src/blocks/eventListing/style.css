@@ -1,0 +1,55 @@
+.festparaa {
+  font-size: 15px;
+  font-family: "Poppins";
+  letter-spacing: 0;
+}
+
+.festesssss {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  letter-spacing: 0;
+}
+
+.festviewwdetails {
+  font-size: 16px;
+  font-family: "Poppins";
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.festheadingsss {
+  font-size: 23px;
+  font-family: "Poppins";
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0;
+}
+
+.festmainheadingsss {
+  font-size: 28px;
+  font-family: "Poppins";
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0;
+}
+
+.festesssss svg {
+  width: 17px;
+  height: 17px;
+}
+
+.festfirstbanner .festdesktopbanner {
+  width: 100%;
+}
+
+.withoutformseccc img {
+  width: 100%;
+}
+
+.festivalbgggg {
+  background-image: url("/public/images/summerfest/festbg.jpeg");
+  background-size: contain;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
