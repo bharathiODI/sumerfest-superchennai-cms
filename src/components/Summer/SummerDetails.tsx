@@ -121,16 +121,16 @@ const SummerFestDetails: React.FC<SummerFestDetailsProps> = ({ data }) => {
      DATE FORMAT
   ========================================================= */
 
-  const formattedDate = useMemo(() => {
-    if (!eventDates?.length) return 'Date Coming Soon'
+  // const formattedDate = useMemo(() => {
+  //   if (!eventDates?.length) return 'Date Coming Soon'
 
-    return new Date(eventDates[0]?.date).toLocaleDateString('en-IN', {
-      weekday: 'long',
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-    })
-  }, [eventDates])
+  //   return new Date(eventDates[0]?.date).toLocaleDateString('en-IN', {
+  //     weekday: 'long',
+  //     day: 'numeric',
+  //     month: 'long',
+  //     year: 'numeric',
+  //   })
+  // }, [eventDates])
 
   /* =========================================================
      FORM
@@ -422,8 +422,6 @@ const SummerFestDetails: React.FC<SummerFestDetailsProps> = ({ data }) => {
             />
           )}
 
-          <div className="absolute inset-0 bg-black/60" />
-
           <div className="absolute inset-0 flex items-center">
             <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
               <motion.div
@@ -440,7 +438,7 @@ const SummerFestDetails: React.FC<SummerFestDetailsProps> = ({ data }) => {
                 }}
                 className="max-w-4xl"
               >
-                <span className="inline-flex rounded-full bg-orange-500 px-5 py-2 text-sm font-semibold uppercase tracking-[2px] text-white">
+                {/* <span className="inline-flex rounded-full bg-orange-500 px-5 py-2 text-sm font-semibold uppercase tracking-[2px] text-white">
                   Super Chennai Event
                 </span>
 
@@ -464,7 +462,7 @@ const SummerFestDetails: React.FC<SummerFestDetailsProps> = ({ data }) => {
 
                     <h4 className="font-semibold text-white">{venue}</h4>
                   </div>
-                </div>
+                </div> */}
               </motion.div>
             </div>
           </div>

@@ -2,9 +2,9 @@
 'use client'
 import React, { useEffect } from 'react'
 import { Media } from 'src/components/Media'
-import type { Arattai } from 'src/payload-types'
+// import type { Arattai } from 'src/payload-types'
 
-export const SummerHero: React.FC<{ arattai: Arattai }> = ({ arattai }) => {
+export const SummerHero: React.FC<{ arattai: any }> = ({ arattai }) => {
   const { heroImage,mobileImage } = arattai
 
   useEffect(() => {
