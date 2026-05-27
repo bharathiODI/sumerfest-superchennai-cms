@@ -119,12 +119,12 @@ export default function EventListingComponent({
 
   return (
     <section
-      className="relative overflow-hidden bg-white py-24"
+      className="relative overflow-hidden bg-white py-5 "
       style={{
         fontFamily: "'Poppins', sans-serif",
       }}
     >
-      <div className="container mx-auto max-w-7xl px-4">
+      <div className="container mx-auto max-w-7xl px-4 mt-10">
         {/* ======================================================
             HEADER
         ====================================================== */}
@@ -138,18 +138,18 @@ export default function EventListingComponent({
             <WaveDecoration />
           </h2>
 
-          {description && (
+          {/* {description && (
             <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-gray-600">
               {description}
             </p>
-          )}
+          )} */}
         </div>
 
         {/* ======================================================
             WEEK TABS
         ====================================================== */}
 
-        <div className="mb-14 grid grid-cols-2 gap-5 md:grid-cols-5">
+        <div className="mb-14 grid grid-cols-2 gap-9 md:grid-cols-5">
           <button
             onClick={() => setActiveWeek('all')}
             className={`rounded-xl border px-4 py-4 text-center transition-all ${
@@ -158,9 +158,17 @@ export default function EventListingComponent({
                 : 'border-gray-200 bg-white text-slate-700 hover:border-gray-300'
             }`}
           >
-            <div className="text-[11px] font-semibold uppercase tracking-widest">ALL EVENTS</div>
+            <div className="text-[10px] uppercase font-semibold tracking-widest opacity-90 festviewwdetails">
+              ALL EVENTS
+            </div>
 
-            <div className="mt-1 text-xs font-bold">Summer Fest</div>
+            <div
+              className={`text-xs font-bold mt-1 festparaa ${
+                activeWeek === 'all' ? ' !text-white ' : ''
+              } `}
+            >
+              Summer Fest
+            </div>
           </button>
 
           {weeks.map((week: any) => {
@@ -188,11 +196,11 @@ export default function EventListingComponent({
                     : 'border-gray-200 bg-white text-slate-700 hover:border-gray-300'
                 }`}
               >
-                <div className="text-[11px] font-semibold uppercase tracking-widest">
+                <div className="text-[10px] uppercase font-semibold tracking-widest opacity-90 festviewwdetails">
                   {week?.title || `WEEK ${week?.weekNumber}`}
                 </div>
 
-                <div className="mt-1 text-xs font-bold">
+                <div className="text-xs font-bold mt-1 festparaa ">
                   {startDate} - {endDate}
                 </div>
               </button>
@@ -220,7 +228,7 @@ export default function EventListingComponent({
             EVENTS GRID
         ====================================================== */}
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-[70px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-[30px]">
           {filteredEvents.map((event: any, index: number) => {
             const eventData = event?.eventFields || {}
 
@@ -260,7 +268,7 @@ export default function EventListingComponent({
 
             return (
               <motion.div
-              className='bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-md transition-shadow'
+                className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-md transition-shadow"
                 key={event?.id}
                 initial={{
                   opacity: 0,
@@ -279,84 +287,80 @@ export default function EventListingComponent({
                   href={`/summerFestEvents/${slug}`}
                   className="group flex h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
                 > */}
-                  {/* IMAGE */}
-                  <div className="relative h-48 w-full bg-slate-200 overflow-hidden">
-                    <Image
-                      src={image}
-                      alt={title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
+                {/* IMAGE */}
+                <div className="relative h-48 w-full bg-slate-200 overflow-hidden">
+                  <Image
+                    src={image}
+                    alt={title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
 
-                    {/* CATEGORY */}
-                    <span
-                      className={`absolute left-4 top-4 rounded-full px-4 py-2 text-[11px] font-bold uppercase tracking-[2px] text-white ${categoryStyle.bg}`}
-                    >
-                      {category}
-                    </span>
-                  </div>
+                  {/* CATEGORY */}
+                  <span
+                    className={`absolute top-4 left-4 px-3 py-1 text-[13px] font-bold text-white rounded-full  tracking-widest ${categoryStyle.bg}`}
+                  >
+                    {category}
+                  </span>
+                </div>
 
-                  {/* CONTENT */}
-                  <div className="flex flex-1 flex-col justify-between p-6">
-                    <div>
-                      {/* TITLE */}
-                      <h3 className="text-lg font-bold text-[#061E43] mb-4 tracking-wide festheadingsss">
-                        {title}
-                      </h3>
+                {/* CONTENT */}
+                <div className="flex flex-1 flex-col justify-between p-6">
+                  <div>
+                    {/* TITLE */}
+                    <h3 className="text-lg font-bold text-[#061E43] mb-4 tracking-wide festheadingsss">
+                      {title}
+                    </h3>
 
-                      {/* DESCRIPTION */}
-                      {shortDescription && (
-                        <p className="text-xs text-[#000] line-clamp-2 mb-3 leading-relaxed font-bold festparaa !text-[16px]">
-                          {shortDescription}
-                        </p>
+                    {/* DESCRIPTION */}
+                    {shortDescription && (
+                      <p className="text-xs text-[#000] line-clamp-2 mb-3 leading-relaxed font-medium  festparaa !text-[16px]">
+                        {shortDescription}
+                      </p>
+                    )}
+
+                    {/* META */}
+                    <div className="space-y-3  text-[#000] font-medium tracking-wide festesssss">
+                      {/* DATE */}
+                      {formattedDate && (
+                        <div className="flex items-center gap-2">
+                          <Calendar className={`h-4 w-4 ${categoryStyle.text}`} strokeWidth={2.5} />
+
+                          <span className="festparaa">{formattedDate}</span>
+                        </div>
                       )}
 
-                      {/* META */}
-                      <div className="space-y-3 text-sm font-medium text-gray-700">
-                        {/* DATE */}
-                        {formattedDate && (
-                          <div className="flex items-center gap-2">
-                            <Calendar
-                              className={`h-4 w-4 ${categoryStyle.text}`}
-                              strokeWidth={2.5}
-                            />
+                      {/* TIME */}
+                      {(startTime || endTime) && (
+                        <div className="flex items-center gap-2 !mt-0">
+                          <Clock className={`h-4 w-4 ${categoryStyle.text}`} strokeWidth={2.5} />
 
-                            <span>{formattedDate}</span>
-                          </div>
-                        )}
+                          <span className="festparaa ">
+                            {startTime} - {endTime}
+                          </span>
+                        </div>
+                      )}
 
-                        {/* TIME */}
-                        {(startTime || endTime) && (
-                          <div className="flex items-center gap-2">
-                            <Clock className={`h-4 w-4 ${categoryStyle.text}`} strokeWidth={2.5} />
+                      {/* LOCATION */}
+                      {venue && (
+                        <div className="flex items-center gap-2">
+                          <MapPin className={`h-4 w-4 ${categoryStyle.text}`} strokeWidth={2.5} />
 
-                            <span>
-                              {startTime} - {endTime}
-                            </span>
-                          </div>
-                        )}
-
-                        {/* LOCATION */}
-                        {venue && (
-                          <div className="flex items-center gap-2">
-                            <MapPin className={`h-4 w-4 ${categoryStyle.text}`} strokeWidth={2.5} />
-
-                            <span>{venue}</span>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* BUTTON */}
-                    <div className="mt-6 border-t border-gray-100 pt-5">
-                      <div
-                        className={`flex items-center gap-2 text-xs font-bold uppercase tracking-[2px] transition-all group-hover:gap-3 ${categoryStyle.text}`}
-                      >
-                        View Details
-                        <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
-                      </div>
+                          <span className="festparaa">{venue}</span>
+                        </div>
+                      )}
                     </div>
                   </div>
+                  {/* BUTTON */}
+                  <div className="mt-2 pt-3 ">
+                    <div
+                      className={`flex items-center gap-1.5 text-[11px] font-bold tracking-widest uppercase cursor-pointer hover:opacity-80 transition-opacity text-[#007A87] festviewwdetails`}
+                    >
+                      <Link href={`/summerFestEvents/${slug}`}>View Details</Link>
+                      <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+                    </div>
+                  </div>
+                </div>
                 {/* </Link> */}
               </motion.div>
             )
