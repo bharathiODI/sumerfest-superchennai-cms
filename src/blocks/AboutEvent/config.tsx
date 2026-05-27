@@ -1,4 +1,3 @@
-
 import type { Block } from 'payload'
 
 export const AboutEventBlock: Block = {
@@ -25,6 +24,16 @@ export const AboutEventBlock: Block = {
     {
       name: 'description',
       type: 'textarea',
+    },
+
+    /* =========================================
+       IMAGE
+    ========================================= */
+
+    {
+      name: 'image',
+      type: 'upload',
+      relationTo: 'media',
     },
 
     /* =========================================
@@ -77,8 +86,7 @@ export const AboutEventBlock: Block = {
           name: 'color',
           type: 'text',
           admin: {
-            placeholder:
-              '#005B70',
+            placeholder: '#005B70',
           },
         },
       ],
@@ -91,8 +99,7 @@ export const AboutEventBlock: Block = {
     {
       name: 'locationTitle',
       type: 'text',
-      defaultValue:
-        'Event Location',
+      defaultValue: 'Event Location',
     },
 
     {

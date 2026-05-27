@@ -1,85 +1,3 @@
-// import { NextRequest, NextResponse } from 'next/server'
-// import { getPayload } from 'payload'
-// import config from '@payload-config'
-// import { createTransporter } from '@/utilities/emailComponents/transporter'
-
-// export async function POST(req: NextRequest) {
-//   try {
-//     const body = await req.json()
-
-//     const payload = await getPayload({ config })
-
-//     const registration = await payload.findByID({
-//       collection: 'arattai-registrations',
-//       id: body.id,
-//     })
-
-//     if (!registration?.email) {
-//       return NextResponse.json({ success: false, message: 'Email not found' }, { status: 400 })
-//     }
-//     const adminMessage = registration?.adminMessage
-//     /* =========================
-//        TRANSPORTER EMAIL SEND
-//     ========================= */
-
-//     const transporter = createTransporter()
-
-//     await transporter.sendMail({
-//       from: process.env.SMTP_USER,
-//       to: registration.email,
-//       subject: 'Your Registration is Confirmed 🎉',
-
-//       html: `
-//   <div style="font-family:sans-serif;padding:30px">
-
-//     <h2>Registration Confirmed 🎉</h2>
-
-//     <p>Hi <b>${registration.name}</b>,</p>
-
-//     <p>Your registration has been confirmed successfully.</p>
-
-//     <hr style="margin:20px 0;" />
-
-//     ${
-//       adminMessage
-//         ? `
-//         <div style="padding:15px;border-left:4px solid #ec4899;background:#fff5f7;">
-//           <h3 style="margin:0 0 10px;">Message from Admin</h3>
-//           <p style="margin:0;">${adminMessage}</p>
-//         </div>
-//       `
-//         : ''
-//     }
-
-//     <p style="margin-top:20px;">
-//       We look forward to seeing you at the event.
-//     </p>
-
-//   </div>
-// `,
-//     })
-
-//     /* =========================
-//        UPDATE COLLECTION
-//     ========================= */
-
-//     await payload.update({
-//       collection: 'arattai-registrations',
-//       id: body.id,
-//       data: {
-//         thankYouMailSent: true,
-//         status: 'confirmed',
-//         confirmedAt: new Date().toISOString(),
-//       },
-//     })
-
-//     return NextResponse.json({ success: true })
-//   } catch (error) {
-//     console.log('EMAIL ERROR:', error)
-
-//     return NextResponse.json({ success: false, message: 'Email failed' }, { status: 500 })
-//   }
-// }
 import { NextRequest, NextResponse } from 'next/server'
 import { getPayload } from 'payload'
 import config from '@payload-config'
@@ -92,7 +10,8 @@ export async function POST(req: NextRequest) {
     const payload = await getPayload({ config })
 
     const registration = await payload.findByID({
-      collection: 'arattai-registrations',
+      collection: 'arattai-registrations' as any,
+
       id: body.id,
     })
 
@@ -263,7 +182,8 @@ export async function POST(req: NextRequest) {
     ========================= */
 
     await payload.update({
-      collection: 'arattai-registrations',
+      collection: 'arattai-registrations' as any,
+
       id: body.id,
       data: {
         thankYouMailSent: true,

@@ -22,7 +22,7 @@ export function renderNode(node: any, idx: number): React.ReactNode {
     ------------------------------------------------ */
     case 'paragraph':
       return (
-        <p key={idx} className="mb-5 text-lg leading-8 text-gray-700">
+        <p key={idx} className="mb-0 text-lg leading-8 text-gray-700">
           {renderText(node.children)}
         </p>
       )
