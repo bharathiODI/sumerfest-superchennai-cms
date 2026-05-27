@@ -13,7 +13,7 @@ const PageBody: React.FC<PageBodyProps> = ({ content }) => {
   return (
     <section className="">
       <div className="">
-        <div className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-gray-900 prose-p:text-gray-700 prose-p:leading-8 prose-a:text-pink-600 prose-img:rounded-2xl">
+        <div className="">
           <LexicalRenderer content={content} />
         </div>
       </div>

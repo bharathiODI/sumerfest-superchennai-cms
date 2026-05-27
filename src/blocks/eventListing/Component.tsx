@@ -130,7 +130,7 @@ export default function EventListingComponent({
         ====================================================== */}
 
         <div className="mb-10 text-center">
-          <h2 className="flex items-center justify-center text-sm font-bold uppercase tracking-widest text-[#061E43]">
+          <h2 className="text-sm font-bold tracking-widest text-[#061E43] flex items-center justify-center uppercase festmainheadingsss">
             <WaveDecoration />
 
             {heading || 'Festival Events'}
@@ -205,7 +205,7 @@ export default function EventListingComponent({
         ====================================================== */}
 
         <div className="mb-10 text-center">
-          <h3 className="flex items-center justify-center text-sm font-extrabold uppercase tracking-widest text-[#061E43]">
+          <h3 className="text-sm font-extrabold tracking-widest text-[#061E43] flex items-center justify-center uppercase festmainheadingsss">
             <WaveDecoration />
 
             {activeWeek === 'all'
@@ -220,7 +220,7 @@ export default function EventListingComponent({
             EVENTS GRID
         ====================================================== */}
 
-        <div className="grid grid-cols-1 gap-8 pb-[70px] md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-[70px]">
           {filteredEvents.map((event: any, index: number) => {
             const eventData = event?.eventFields || {}
 
@@ -260,6 +260,7 @@ export default function EventListingComponent({
 
             return (
               <motion.div
+              className='bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-md transition-shadow'
                 key={event?.id}
                 initial={{
                   opacity: 0,
@@ -274,12 +275,12 @@ export default function EventListingComponent({
                   delay: index * 0.1,
                 }}
               >
-                <Link
+                {/* <Link
                   href={`/summerFestEvents/${slug}`}
                   className="group flex h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
-                >
+                > */}
                   {/* IMAGE */}
-                  <div className="relative h-56 overflow-hidden bg-slate-200">
+                  <div className="relative h-48 w-full bg-slate-200 overflow-hidden">
                     <Image
                       src={image}
                       alt={title}
@@ -299,13 +300,13 @@ export default function EventListingComponent({
                   <div className="flex flex-1 flex-col justify-between p-6">
                     <div>
                       {/* TITLE */}
-                      <h3 className="mb-4 text-2xl font-black leading-tight text-[#061E43]">
+                      <h3 className="text-lg font-bold text-[#061E43] mb-4 tracking-wide festheadingsss">
                         {title}
                       </h3>
 
                       {/* DESCRIPTION */}
                       {shortDescription && (
-                        <p className="mb-5 line-clamp-3 text-[15px] leading-7 text-gray-600">
+                        <p className="text-xs text-[#000] line-clamp-2 mb-3 leading-relaxed font-bold festparaa !text-[16px]">
                           {shortDescription}
                         </p>
                       )}
@@ -356,7 +357,7 @@ export default function EventListingComponent({
                       </div>
                     </div>
                   </div>
-                </Link>
+                {/* </Link> */}
               </motion.div>
             )
           })}
