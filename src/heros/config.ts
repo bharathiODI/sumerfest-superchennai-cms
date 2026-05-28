@@ -42,7 +42,17 @@ export const hero: Field = {
         condition: isNotNone,
       },
     },
-   
+
+    {
+      name: 'mobileImage',
+      type: 'upload',
+      label: 'Mobile Banner Image',
+      relationTo: 'media',
+      required: false,
+      admin: {
+        condition: isNotNone,
+      },
+    },
 
     linkGroup({
       overrides: {

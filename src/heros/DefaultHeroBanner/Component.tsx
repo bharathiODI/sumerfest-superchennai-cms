@@ -9,15 +9,23 @@ interface ImageObject {
 interface Props {
   image?: string | ImageObject | null
   heading?: string | null
+  mobileImage?: string | ImageObject | null
 }
 
-export const DefaultHeroBanner: React.FC<Props> = ({ heading, image }) => {
+export const DefaultHeroBanner: React.FC<Props> = ({ heading, image, mobileImage }) => {
   const imageUrl =
     typeof image === 'object' && image?.url
       ? image.url
       : typeof image === 'string'
         ? `/api/media/${image}`
         : ''
+
+  const mobileImageUrl =
+    typeof mobileImage === 'object' && mobileImage?.url
+      ? mobileImage.url
+      : typeof mobileImage === 'string'
+        ? `/api/media/${mobileImage}`
+        : imageUrl
 
   return (
     <div className="w-full">
@@ -27,7 +35,13 @@ export const DefaultHeroBanner: React.FC<Props> = ({ heading, image }) => {
           <img
             src={imageUrl || defaultImage.src}
             alt="Banner"
-            className="w-full h-full object-cover"
+            className="z-10 object-cover hidden sm:block w-full"
+          />
+
+          <img
+            src={mobileImageUrl || imageUrl || defaultImage.src}
+            alt="Mobile Banner"
+            className="z-10 object-cover block sm:hidden w-full"
           />
         </div>
 

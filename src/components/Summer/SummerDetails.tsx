@@ -11,6 +11,7 @@ import { render } from '@react-email/render'
 
 import SummerFestRegistrationEmail from './SummerFestRegistrationEmail'
 import LexicalRenderer from '../lexical/LexicalRenderer'
+import { CheckCircle2, Sparkles, X } from 'lucide-react'
 
 /* =========================================================
    TYPES
@@ -84,6 +85,7 @@ const SummerFestDetails: React.FC<SummerFestDetailsProps> = ({ data }) => {
   const [generatedOtp, setGeneratedOtp] = useState('')
   const [otpVerified, setOtpVerified] = useState(false)
   const [sendingOtp, setSendingOtp] = useState(false)
+  const [showSuccessModal, setShowSuccessModal] = useState(false)
 
   if (!data) return null
 
@@ -288,6 +290,7 @@ const SummerFestDetails: React.FC<SummerFestDetailsProps> = ({ data }) => {
       })
 
       toast.success('Registration submitted successfully')
+      setShowSuccessModal(true)
 
       setFormData({})
       setOtp('')
@@ -506,7 +509,7 @@ const SummerFestDetails: React.FC<SummerFestDetailsProps> = ({ data }) => {
           <div className="mb-10 text-center">
             <h2 className="text-sm font-extrabold tracking-widest text-[#005B70] gap-2 mt-0 mb-0 flex items-center justify-center uppercase festmainheadingsss">
               <WaveDecoration />
-              REGISTER FOR THIS <span className="text-[#E0533C]"> {" "}EVENT</span>
+              REGISTER FOR THIS <span className="text-[#E0533C]"> EVENT</span>
               <WaveDecoration />
             </h2>
 
@@ -629,6 +632,119 @@ const SummerFestDetails: React.FC<SummerFestDetailsProps> = ({ data }) => {
             </div>
           </div>
         </section>
+      )}
+
+      {/* =========================================================
+    SUCCESS MODAL
+========================================================= */}
+
+      {showSuccessModal && (
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 backdrop-blur-md px-4">
+          <motion.div
+            initial={{
+              opacity: 0,
+              scale: 0.8,
+              y: 50,
+            }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+              y: 0,
+            }}
+            exit={{
+              opacity: 0,
+              scale: 0.8,
+            }}
+            transition={{
+              duration: 0.4,
+              ease: 'easeOut',
+            }}
+            className="
+        relative overflow-hidden
+        rounded-[35px]
+        bg-white
+        shadow-[0_20px_80px_rgba(0,0,0,0.35)]
+        max-w-xl
+        w-full
+        p-10
+        text-center
+      "
+          >
+            {/* CLOSE BUTTON */}
+
+            <button
+              onClick={() => setShowSuccessModal(false)}
+              className="
+          absolute right-5 top-5
+          flex h-10 w-10 items-center justify-center
+          rounded-full bg-gray-100
+          transition-all hover:bg-gray-200
+        "
+            >
+              <X className="h-5 w-5 text-black" />
+            </button>
+
+            {/* BACKGROUND GLOW */}
+
+            <div className="absolute -top-20 left-1/2 h-60 w-60 -translate-x-1/2 rounded-full bg-orange-200 blur-3xl opacity-40" />
+
+            {/* ICON */}
+
+            <div className="relative z-10 mx-auto flex h-28 w-28 items-center justify-center rounded-full bg-gradient-to-br from-orange-400 via-amber-400 to-yellow-300 shadow-2xl">
+              <CheckCircle2 className="h-14 w-14 text-white" />
+            </div>
+
+            {/* CONTENT */}
+
+            <div className="relative z-10 mt-8">
+              <div className="mb-3 flex items-center justify-center gap-2">
+                <Sparkles className="h-5 w-5 text-orange-500" />
+
+                <span className="text-sm font-bold uppercase tracking-[4px] text-orange-500">
+                  Registration Successful
+                </span>
+              </div>
+
+              <h2 className="text-4xl font-black leading-tight text-[#061E43]">Thank You!</h2>
+
+              <p className="mt-5 text-lg leading-8 text-gray-600">
+                Your registration for <span className="font-bold text-orange-500">{title}</span> has
+                been successfully submitted.
+              </p>
+
+              <p className="mt-3 text-sm text-gray-500">
+                We’ll contact you soon with event details and confirmation.
+              </p>
+            </div>
+
+            {/* BUTTON */}
+
+            <div className="relative z-10 mt-10">
+              <button
+                onClick={() => setShowSuccessModal(false)}
+                className="
+            rounded-full
+            bg-gradient-to-r
+            from-orange-500
+            via-amber-500
+            to-yellow-400
+            px-10
+            py-4
+            text-sm
+            font-bold
+            uppercase
+            tracking-[2px]
+            text-white
+            shadow-xl
+            transition-all
+            hover:scale-105
+          "
+              >
+                Continue
+              </button>
+            </div>
+          </motion.div>
+        </div>
       )}
     </>
   )

@@ -7,68 +7,82 @@ const Footer: GlobalConfig = {
     read: () => true,
   },
   fields: [
-    // FOOTER LOGO
-    {
-      type: 'upload',
-      name: 'logo',
-      label: 'Footer Logo',
-      relationTo: 'media',
-    },
+    /* =========================================================
+       COPYRIGHT
+    ========================================================= */
 
-    // FOOTER DESCRIPTION
-    {
-      type: 'textarea',
-      name: 'description',
-      label: 'Footer Description',
-    },
-
-    // QUICK LINKS
-    {
-      type: 'array',
-      name: 'quickLinks',
-      label: 'Quick Links',
-      fields: [
-        {
-          type: 'text',
-          name: 'label',
-          label: 'Label',
-          required: true,
-        },
-        {
-          type: 'text',
-          name: 'link',
-          label: 'Link',
-          required: true,
-        },
-      ],
-    },
-
-    // SOCIAL MEDIA LINKS
-    {
-      type: 'array',
-      name: 'socialLinks',
-      label: 'Social Links',
-      fields: [
-        {
-          type: 'text',
-          name: 'platform',
-          label: 'Platform Name',
-          required: true,
-        },
-        {
-          type: 'text',
-          name: 'link',
-          label: 'URL',
-          required: true,
-        },
-      ],
-    },
-
-    // COPYRIGHT TEXT
     {
       type: 'text',
       name: 'copyright',
       label: 'Copyright Text',
+    },
+
+    /* =========================================================
+       COMPANY / DOMAIN
+    ========================================================= */
+
+    {
+      type: 'group',
+      name: 'companyInfo',
+      label: 'Company Information',
+
+      fields: [
+    
+
+        {
+          name: 'supportEmail',
+          type: 'email',
+          label: 'Support Email',
+          admin: {
+            placeholder: 'support@example.com',
+          },
+        },
+      ],
+    },
+
+    /* =========================================================
+       SOCIAL MEDIA LINKS
+    ========================================================= */
+
+    {
+      name: 'socialMedia',
+      label: 'Social Media Links',
+      type: 'array',
+
+      labels: {
+        singular: 'Social Link',
+        plural: 'Social Links',
+      },
+
+      fields: [
+        {
+          name: 'platform',
+          type: 'text',
+          required: true,
+
+          admin: {
+            placeholder: 'Instagram',
+          },
+        },
+
+        {
+          name: 'url',
+          type: 'text',
+          required: true,
+
+          admin: {
+            placeholder: 'https://instagram.com/yourprofile',
+          },
+        },
+
+        {
+          name: 'icon',
+          label: 'Social Icon',
+          type: 'upload',
+          relationTo: 'media',
+          required: false,
+        },
+      ],
     },
   ],
   hooks: {
