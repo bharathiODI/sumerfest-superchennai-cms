@@ -40,7 +40,7 @@ type Args = {
 export default async function ArrataiPage({ params: paramsPromise }: Args) {
   const { isEnabled: draft } = await draftMode()
   const { slug = '' } = await paramsPromise
-  const url = '/summerFestEvents/' + slug
+  const url = '/events/' + slug
   const arattai = await queryPostBySlug({ slug })
 
   console.log('summerFestEvents', arattai)
