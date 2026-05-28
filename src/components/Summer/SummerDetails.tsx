@@ -405,9 +405,9 @@ const SummerFestDetails: React.FC<SummerFestDetailsProps> = ({ data }) => {
 
       {/* HERO */}
 
-      <section className="relative overflow-hidden">
+      {/* <section className="relative overflow-hidden">
         <div className="relative h-[80vh] min-h-[600px] w-full">
-          {/* DESKTOP IMAGE */}
+        
 
           {heroImage?.url && (
             <Image
@@ -419,7 +419,7 @@ const SummerFestDetails: React.FC<SummerFestDetailsProps> = ({ data }) => {
             />
           )}
 
-          {/* MOBILE IMAGE */}
+         
 
           {mobileImage?.url && (
             <Image
@@ -447,7 +447,7 @@ const SummerFestDetails: React.FC<SummerFestDetailsProps> = ({ data }) => {
                 }}
                 className="max-w-4xl"
               >
-                {/* <span className="inline-flex rounded-full bg-orange-500 px-5 py-2 text-sm font-semibold uppercase tracking-[2px] text-white">
+                <span className="inline-flex rounded-full bg-orange-500 px-5 py-2 text-sm font-semibold uppercase tracking-[2px] text-white">
                   Super Chennai Event
                 </span>
 
@@ -471,7 +471,56 @@ const SummerFestDetails: React.FC<SummerFestDetailsProps> = ({ data }) => {
 
                     <h4 className="font-semibold text-white">{venue}</h4>
                   </div>
-                </div> */}
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section> */}
+      <section className="relative overflow-hidden">
+        <div className="relative w-full">
+          {/* DESKTOP IMAGE */}
+          {heroImage?.url && (
+            <Image
+              src={heroImage.url}
+              alt={heroImage.alt || title}
+              width={1920}
+              height={1080}
+              priority
+              className="hidden md:block w-full h-auto object-contain"
+            />
+          )}
+
+          {/* MOBILE IMAGE */}
+          {mobileImage?.url && (
+            <Image
+              src={mobileImage.url}
+              alt={title}
+              width={800}
+              height={1200}
+              priority
+              className="block md:hidden w-full h-auto object-contain mt-10"
+            />
+          )}
+
+          {/* CONTENT */}
+          <div className="absolute inset-0 flex items-center">
+            <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  y: 30,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  duration: 0.5,
+                }}
+                className="max-w-4xl"
+              >
+                {/* CONTENT HERE */}
               </motion.div>
             </div>
           </div>
@@ -481,7 +530,7 @@ const SummerFestDetails: React.FC<SummerFestDetailsProps> = ({ data }) => {
       {/* CONTENT */}
 
       <section className="bg-white py-20 ">
-        <div className="">
+        <div className="container max-w-7xl mx-auto px-4">
           <div className="prose prose-lg max-w-none">
             <LexicalRenderer content={data?.content} />
           </div>
