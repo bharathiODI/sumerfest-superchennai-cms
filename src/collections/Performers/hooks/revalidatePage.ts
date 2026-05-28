@@ -16,7 +16,7 @@ export const revalidatePage: CollectionAfterChangeHook<Page> = ({
       payload.logger.info(`Revalidating performers at path: ${path}`)
 
       revalidatePath(path)
-      revalidateTag('pages-sitemap')
+      revalidateTag('performers-sitemap')
     }
 
     // If the page was previously published, we need to revalidate the old path

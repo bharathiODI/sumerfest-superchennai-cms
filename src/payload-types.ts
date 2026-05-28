@@ -175,6 +175,7 @@ export interface Page {
     type: 'none' | 'Defult';
     heading?: string | null;
     image?: (number | null) | Media;
+    mobileImage?: (number | null) | Media;
     links?:
       | {
           link: {
@@ -498,6 +499,7 @@ export interface Partner {
     type: 'none' | 'Defult';
     heading?: string | null;
     image?: (number | null) | Media;
+    mobileImage?: (number | null) | Media;
     links?:
       | {
           link: {
@@ -633,6 +635,7 @@ export interface Performer {
     type: 'none' | 'Defult';
     heading?: string | null;
     image?: (number | null) | Media;
+    mobileImage?: (number | null) | Media;
     links?:
       | {
           link: {
@@ -894,6 +897,7 @@ export interface Venue {
     type: 'none' | 'Defult';
     heading?: string | null;
     image?: (number | null) | Media;
+    mobileImage?: (number | null) | Media;
     links?:
       | {
           link: {
@@ -1535,6 +1539,7 @@ export interface PagesSelect<T extends boolean = true> {
         type?: T;
         heading?: T;
         image?: T;
+        mobileImage?: T;
         links?:
           | T
           | {
@@ -1764,6 +1769,7 @@ export interface PartnersSelect<T extends boolean = true> {
         type?: T;
         heading?: T;
         image?: T;
+        mobileImage?: T;
         links?:
           | T
           | {
@@ -1832,6 +1838,7 @@ export interface PerformersSelect<T extends boolean = true> {
         type?: T;
         heading?: T;
         image?: T;
+        mobileImage?: T;
         links?:
           | T
           | {
@@ -1978,6 +1985,7 @@ export interface VenuesSelect<T extends boolean = true> {
         type?: T;
         heading?: T;
         image?: T;
+        mobileImage?: T;
         links?:
           | T
           | {
@@ -2388,6 +2396,10 @@ export interface Header {
    * Upload the logo for the header.
    */
   logo?: (number | null) | Media;
+  /**
+   * Upload the logo for the header right side.
+   */
+  secondarylogo?: (number | null) | Media;
   navItems?:
     | {
         link: {
@@ -2417,23 +2429,18 @@ export interface Header {
  */
 export interface Footer {
   id: number;
-  logo?: (number | null) | Media;
-  description?: string | null;
-  quickLinks?:
-    | {
-        label: string;
-        link: string;
-        id?: string | null;
-      }[]
-    | null;
-  socialLinks?:
+  copyright?: string | null;
+  companyInfo?: {
+    supportEmail?: string | null;
+  };
+  socialMedia?:
     | {
         platform: string;
-        link: string;
+        url: string;
+        icon?: (number | null) | Media;
         id?: string | null;
       }[]
     | null;
-  copyright?: string | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -2443,6 +2450,7 @@ export interface Footer {
  */
 export interface HeaderSelect<T extends boolean = true> {
   logo?: T;
+  secondarylogo?: T;
   navItems?:
     | T
     | {
@@ -2466,23 +2474,20 @@ export interface HeaderSelect<T extends boolean = true> {
  * via the `definition` "footer_select".
  */
 export interface FooterSelect<T extends boolean = true> {
-  logo?: T;
-  description?: T;
-  quickLinks?:
+  copyright?: T;
+  companyInfo?:
     | T
     | {
-        label?: T;
-        link?: T;
-        id?: T;
+        supportEmail?: T;
       };
-  socialLinks?:
+  socialMedia?:
     | T
     | {
         platform?: T;
-        link?: T;
+        url?: T;
+        icon?: T;
         id?: T;
       };
-  copyright?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

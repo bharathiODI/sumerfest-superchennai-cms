@@ -13,20 +13,20 @@ export const revalidatePage: CollectionAfterChangeHook<Page> = ({
     if (doc._status === 'published') {
       const path = doc.slug === 'home' ? '/' : `/${doc.slug}`
 
-      payload.logger.info(`Revalidating summer-events at path: ${path}`)
+      payload.logger.info(`Revalidating events at path: ${path}`)
 
       revalidatePath(path)
-      revalidateTag('summer-events-sitemap')
+      revalidateTag('events-sitemap')
     }
 
     // If the page was previously published, we need to revalidate the old path
     if (previousDoc?._status === 'published' && doc._status !== 'published') {
       const oldPath = previousDoc.slug === 'home' ? '/' : `/${previousDoc.slug}`
 
-      payload.logger.info(`Revalidating old summer-events at path: ${oldPath}`)
+      payload.logger.info(`Revalidating old events at path: ${oldPath}`)
 
       revalidatePath(oldPath)
-      revalidateTag('summer-events-sitemap')
+      revalidateTag('events-sitemap')
     }
   }
   return doc
@@ -36,7 +36,7 @@ export const revalidateDelete: CollectionAfterDeleteHook<Page> = ({ doc, req: { 
   if (!context.disableRevalidate) {
     const path = doc?.slug === 'home' ? '/' : `/${doc?.slug}`
     revalidatePath(path)
-    revalidateTag('summer-events-sitemap')
+    revalidateTag('events-sitemap')
   }
 
   return doc
