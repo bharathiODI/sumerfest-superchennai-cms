@@ -29,7 +29,7 @@ export default async function Page() {
 
         <div className="accodoamationBannerContainer absolute inset-0 flex items-center">
           <div className="accodoamationBannerText container mx-auto">
-            <h3>Arattai</h3>
+            <h3>Events</h3>
             <div className="breadCrum">
               <Link href="/">Home</Link> - <Link href="/arattai">summerFestEvents</Link>
             </div>
