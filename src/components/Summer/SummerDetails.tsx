@@ -65,6 +65,12 @@ const setFieldValue = (prev: Record<string, any>, fieldName: string, value: any)
   }
 }
 
+const WaveDecoration = () => (
+  <span className="mx-2 inline-block font-serif text-lg tracking-widest text-[#007A87] opacity-60">
+    ~~~
+  </span>
+)
+
 /* =========================================================
    COMPONENT
 ========================================================= */
@@ -302,7 +308,7 @@ const SummerFestDetails: React.FC<SummerFestDetailsProps> = ({ data }) => {
     const fieldName = normalizeFieldName(field.name)
 
     const commonClass =
-      'w-full rounded-2xl border border-gray-300 bg-white px-5 py-4 outline-none transition-all focus:border-orange-500'
+      'w-full rounded-[5px] border border-gray-300 bg-white px-5 py-4 outline-none transition-all focus:border-orange-500 mt-2 inputttssss '
 
     switch (field.type) {
       case 'textarea':
@@ -342,7 +348,7 @@ const SummerFestDetails: React.FC<SummerFestDetailsProps> = ({ data }) => {
           <input
             type="email"
             name={fieldName}
-            placeholder={field.placeholder}
+            placeholder="Enter your Email Id"
             required={field.required}
             value={getFieldValue(formData, field.name) || ''}
             onChange={(e) => handleChange(field.name, e.target.value)}
@@ -355,8 +361,8 @@ const SummerFestDetails: React.FC<SummerFestDetailsProps> = ({ data }) => {
           <input
             type="tel"
             inputMode="numeric"
-            name={fieldName}
-            placeholder={field.placeholder}
+            name="{fieldName}"
+            placeholder="Enter your Mobile Number"
             required={field.required}
             value={getFieldValue(formData, field.name) || ''}
             onChange={(e) => handleChange(field.name, e.target.value.replace(/\D/g, ''))}
@@ -380,7 +386,7 @@ const SummerFestDetails: React.FC<SummerFestDetailsProps> = ({ data }) => {
           <input
             type="text"
             name={fieldName}
-            placeholder={field.placeholder}
+            placeholder="Enter your Name"
             required={field.required}
             value={getFieldValue(formData, field.name) || ''}
             onChange={(e) => handleChange(field.name, e.target.value)}
@@ -471,8 +477,8 @@ const SummerFestDetails: React.FC<SummerFestDetailsProps> = ({ data }) => {
 
       {/* CONTENT */}
 
-      <section className="bg-white py-20">
-        <div className="mx-auto max-w-7xl px-4 md:px-8">
+      <section className="bg-white py-20 ">
+        <div className="">
           <div className="prose prose-lg max-w-none">
             <LexicalRenderer content={data?.content} />
           </div>
@@ -496,23 +502,36 @@ const SummerFestDetails: React.FC<SummerFestDetailsProps> = ({ data }) => {
       {/* FORM */}
 
       {isRegistrationOpen && (
-        <section className="bg-white py-20">
-          <div className="mx-auto max-w-5xl px-4 md:px-8">
-            <div className="overflow-hidden rounded-[40px] border border-gray-100 bg-white shadow-2xl">
-              <div className="bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 p-10 text-white">
-                <h2 className="text-4xl font-black">Register Now</h2>
+        <section className=" py-20 ">
+          <div className="mb-10 text-center">
+            <h2 className="text-sm font-extrabold tracking-widest text-[#005B70] gap-2 mt-0 mb-0 flex items-center justify-center uppercase festmainheadingsss">
+              <WaveDecoration />
+              REGISTER FOR THIS <span className="text-[#E0533C]"> {" "}EVENT</span>
+              <WaveDecoration />
+            </h2>
 
-                <p className="mt-4 text-orange-50">Fill your details to participate.</p>
-              </div>
+            <div className="flex items-center justify-center">
+              <div className="w-20 h-1 bg-[#FCBA13] mt-2 rounded text-center"></div>
+            </div>
+          </div>
+          <div className="mx-auto max-w-3xl px-4 md:px-8 formmaxcontainer">
+            <div className="lg:col-span-7 bg-white rounded-2xl border border-gray-100 shadow-xl p-6 md:p-8 padddddd">
+              {/* <h2 className="text-xl font-bold tracking-wide text-[#005B70]">
+                REGISTER <span className="text-[#061E43]">FOR THIS EVENT</span>{' '}
+              </h2> */}
 
-              <form onSubmit={submitForm} className="p-8 md:p-12">
-                <div className="grid gap-8 md:grid-cols-2">
+              <form onSubmit={submitForm} className="py-8">
+                <div className="grid gap-8 md:grid-cols-2 flexxxxcontainer">
                   {customFields.map((field, index) => (
                     <div
                       key={field.id || index}
-                      className={field.type === 'textarea' ? 'md:col-span-2' : ''}
+                      className={
+                        field.type === 'textarea'
+                          ? 'md:col-span-2 inputsssboxsss'
+                          : 'inputsssboxsss'
+                      }
                     >
-                      <label className="mb-3 block text-sm font-bold text-gray-800">
+                      <label className="text-xs text-[#000] mb-3 leading-relaxed font-medium festparaa !text-[16px] mb-10">
                         {field.label}
 
                         {field.required && <span className="ml-1 text-red-500">*</span>}
@@ -521,11 +540,44 @@ const SummerFestDetails: React.FC<SummerFestDetailsProps> = ({ data }) => {
                       {renderField(field)}
                     </div>
                   ))}
+
+                  <div className="butooonnssss">
+                    <button
+                      type="button"
+                      onClick={sendOtpToMobile}
+                      disabled={sendingOtp}
+                      className="mt-6 rounded-2xl bg-orange-500 px-8 py-4 font-semibold text-white hover:bg-orange-600 disabled:opacity-60 buttonsubmitttt"
+                    >
+                      {sendingOtp ? 'Sending OTP...' : 'Send OTP'}
+                    </button>
+                  </div>
+
+                  {generatedOtp && (
+                    <>
+                      <div className="inputsssboxsss">
+                        <input
+                          type="text"
+                          placeholder="Enter OTP"
+                          value={otp}
+                          onChange={(e) => setOtp(e.target.value)}
+                          className="w-full rounded-[5px] border border-gray-300 bg-white px-5 py-4 outline-none transition-all focus:border-orange-500 mt-2 inputttssss otpinputss "
+                        />
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={verifyOtp}
+                        className="rounded-2xl bg-black px-8 py-4 font-semibold text-white buttonsubmitttt verifyottpbitt"
+                      >
+                        Verify OTP
+                      </button>
+                    </>
+                  )}
                 </div>
 
                 {/* OTP */}
 
-                {enableOTP && !otpVerified && (
+                {/* {enableOTP && !otpVerified && (
                   <div className="mt-10 rounded-3xl border border-orange-200 bg-orange-50 p-8">
                     <h3 className="text-2xl font-bold">Mobile Verification</h3>
 
@@ -558,7 +610,7 @@ const SummerFestDetails: React.FC<SummerFestDetailsProps> = ({ data }) => {
                       </div>
                     )}
                   </div>
-                )}
+                )} */}
 
                 {otpVerified && (
                   <div className="mt-8 rounded-2xl border border-green-200 bg-green-50 p-5 text-green-700">
@@ -569,7 +621,7 @@ const SummerFestDetails: React.FC<SummerFestDetailsProps> = ({ data }) => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="mt-12 w-full rounded-3xl bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 px-8 py-5 text-lg font-black text-white shadow-xl transition-all hover:scale-[1.01] disabled:opacity-60"
+                  className="mt-12 w-full font-semibold rounded-3xl bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 px-8 py-5 text-lg font-black text-white shadow-xl transition-all hover:scale-[1.01] disabled:opacity-60 submitbuttonssss"
                 >
                   {loading ? 'Submitting...' : 'Submit Registration'}
                 </button>

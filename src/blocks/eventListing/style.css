@@ -1,7 +1,4 @@
-
-
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 .rfm-marquee {
   z-index: 0 !important;
@@ -26,12 +23,12 @@
   }
 }
 
-
 .festparaa {
-  font-size: 15px !important;
+  font-size: 16px !important;
   font-family: 'Poppins', sans-serif;
   color: #000;
   line-height: 23px;
+  letter-spacing: 0;
 }
 
 .festesssss {
@@ -88,4 +85,89 @@
 .paddingsection {
   padding-top: 70px;
   padding-bottom: 70px;
+}
+
+.svgiconsoftheaboutt {
+  width: 68px;
+  height: 68px;
+}
+
+.underlinenone {
+  text-decoration: none;
+}
+
+.patchssswhite {
+  width: 96px;
+  height: 100%;
+}
+
+.buttonsubmitttt {
+  width: -moz-max-content;
+  width: max-content;
+  font-size: 15px;
+  padding: 5px 20px;
+  height: 44px;
+  border-radius: 5px;
+  margin-top: 33px;
+  margin-left: -149px;
+}
+
+.butooonnssss {
+  display: flex;
+  align-items: center;
+}
+
+.inputttssss {
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+
+.submitbuttonssss {
+  width: max-content;
+  padding: 12px 20px;
+  font-size: 15px;
+  border-radius: 5px;
+  margin-top: 40px;
+}
+
+.otpinputtsss {
+  width: max-content;
+}
+
+.otpinputss {
+  height: 52px;
+}
+
+.flexxxxcontainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.inputsssboxsss {
+  width: 90%;
+}
+
+.verifyottpbitt {
+  margin-top: 12px;
+  margin-left: -156px;
+}
+
+.formmaxcontainer {
+  max-width: 570px;
+}
+
+.padddddd {
+  padding-right: 0;
+}
+
+.hovereddbossss {
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    width: 200px;
+    padding: 10px 15px;
+}
+
+
+.paddingcarsouel {
+  padding: 10px 0 !important ;
 }

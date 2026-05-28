@@ -89,7 +89,7 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#FCBA13] text-[#061E43] py-4 px-6 md:px-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-12 mt-10 ">
+    <footer className="w-full bg-[#FCBA13] text-[#061E43] py-4 px-6 md:px-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-12 ">
       <div className="max-w-7xl mx-auto px-6 py-6">
 
         {/* 3 COLUMN LAYOUT */}
