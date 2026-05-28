@@ -242,26 +242,27 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
 
         {/* #################### MOBILE NAVBAR ########################### */}
 
-        <div className="flex items-center justify-between bg-white px-4 py-3 shadow-sm md:hidden">
+        <div className="flex items-center justify-between bg-white px-4 py-3 shadow-sm md:hidden mobileeebannerrrsss">
           {/* EVENTS ICON */}
 
-          <div className="flex h-10 w-10 items-center justify-center">
+          {/* <div className="flex h-10 w-10 items-center justify-center">
             <img src={iconEvents.src} alt="Events Icon" />
-          </div>
+          </div> */}
 
           {/* EMAIL ICON */}
 
-          <div className="flex h-10 w-10 items-center justify-center">
+          {/* <div className="flex h-10 w-10 items-center justify-center">
             <img src={iconEmail.src} alt="Email Icon" />
-          </div>
+          </div> */}
 
           {/* MOBILE LOGO */}
 
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center ">
             <Link href="/">
               {data?.logo && typeof data.logo === 'object' && 'url' in data.logo && (
                 <img
-                  src={`/media/${data.logo.filename}`}
+                  src="https://www.superchennai.com/images/HomePage-Images/Superchennai.png"
+                  // src={`/media/${data.logo.filename}`}
                   alt={data.logo.alt || 'Site Logo'}
                   className="max-h-[60px] object-contain"
                 />
