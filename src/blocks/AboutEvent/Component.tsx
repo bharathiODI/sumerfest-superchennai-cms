@@ -282,14 +282,14 @@ export default function AboutEventBlockComponent({
   console.log('FINAL IMAGE URL =>', imageUrl)
 
   return (
-    <section className="py-20">
-      <div className="container mx-auto max-w-7xl px-4">
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+    <section className="pb-[50px]">
+      <div className="container max-w-7xl mx-auto px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* LEFT CONTENT */}
-          <div className="space-y-8">
+          <div className="lg:col-span-5 space-y-8">
             {/* HEADING */}
             <div>
-              <h2 className="text-2xl font-bold tracking-wide text-[#005B70] md:text-4xl">
+              <h2 className="text-2xl font-bold tracking-wide text-[#005B70] mt-0 mb-0">
                 {heading} <span className="text-[#E0533C]">{highlightText}</span>
               </h2>
 
@@ -298,7 +298,7 @@ export default function AboutEventBlockComponent({
 
             {/* DESCRIPTION */}
             {description && (
-              <p className="festparaa text-xs font-medium leading-relaxed text-[#000] !text-[16px]">
+              <p className="text-xs text-[#000] mb-3 leading-relaxed font-medium festparaa !text-[16px]">
                 {description}
               </p>
             )}
@@ -311,7 +311,7 @@ export default function AboutEventBlockComponent({
                 return (
                   <div key={index} className="flex flex-col items-center text-center">
                     <div
-                      className="mb-3 flex h-17 w-17 items-center justify-center rounded-full text-white shadow-sm"
+                      className="mb-3 flex h-17 w-17 items-center justify-center rounded-full text-white shadow-sm svgiconsoftheaboutt"
                       style={{
                         backgroundColor: item?.color || '#005B70',
                       }}
@@ -338,11 +338,11 @@ export default function AboutEventBlockComponent({
               </div>
 
               <div className="space-y-1.5">
-                <h4 className="festparaa text-xs font-semibold uppercase tracking-wider text-[#005B70] !text-[16px]">
+                <h4 className="text-xs font-semibold text-[#005B70] tracking-wider uppercase  festparaa !text-[16px] mt-0">
                   {locationTitle}
                 </h4>
 
-                <p className="festparaa mb-3 text-xs font-medium leading-relaxed text-[#000] !text-[16px]">
+                <p className="text-xs text-[#000] mb-3 leading-relaxed font-medium festparaa !text-[16px]">
                   {locationAddress}
                 </p>
 
@@ -351,7 +351,7 @@ export default function AboutEventBlockComponent({
                     href={mapLink}
                     target="_blank"
                     rel="noreferrer"
-                    className="festparaa inline-flex items-center gap-1.5 pt-1 text-xs font-semibold text-[#E0533C] transition-opacity hover:opacity-80 !text-[16px]"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#E0533C] pt-1 hover:opacity-80 transition-opacity festparaa !text-[16px] underlinenone"
                   >
                     View on Google Maps
                     <span className="text-sm">→</span>
@@ -362,17 +362,17 @@ export default function AboutEventBlockComponent({
           </div>
 
           {/* RIGHT IMAGE */}
-          <div>
+          <div className="lg:col-span-7 space-y-8 withoutformseccc">
             {imageUrl ? (
-              <div className="overflow-hidden rounded-[30px] shadow-xl">
+              <>
                 <Image
                   src={imageUrl}
                   alt={imageAlt || 'About Event'}
                   width={1200}
                   height={900}
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover mt-0 mb-0"
                 />
-              </div>
+              </>
             ) : (
               <div className="flex min-h-[450px] items-center justify-center rounded-[30px] bg-[#EDF6F7]">
                 <div className="text-center">

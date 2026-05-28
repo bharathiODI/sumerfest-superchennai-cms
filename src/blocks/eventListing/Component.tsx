@@ -371,7 +371,7 @@ export default function EventListingComponent({
             VIEW ALL
         ====================================================== */}
 
-        {showViewAll && (
+        {/* {showViewAll && (
           <div className="mt-5 flex justify-center">
             <Link
               href={viewAllLink}
@@ -380,7 +380,7 @@ export default function EventListingComponent({
               View All Events
             </Link>
           </div>
-        )}
+        )} */}
       </div>
     </section>
   )
