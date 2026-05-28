@@ -356,7 +356,7 @@ export default function EventListingComponent({
                     <div
                       className={`flex items-center gap-1.5 text-[11px] font-bold tracking-widest uppercase cursor-pointer hover:opacity-80 transition-opacity text-[#007A87] festviewwdetails`}
                     >
-                      <Link href={`/summerFestEvents/${slug}`}>View Details</Link>
+                      <Link href={`/events/${slug}`}>View Details</Link>
                       <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
                     </div>
                   </div>
