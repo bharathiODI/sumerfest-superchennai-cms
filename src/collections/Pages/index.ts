@@ -31,6 +31,7 @@ import {
 import { EventListing } from '@/blocks/eventListing/config'
 import { PartnerLogos } from '@/blocks/partnerLogos/config'
 import { ImageBlock } from '@/blocks/imageBlock/config'
+import { AboutEventBlock } from '@/blocks/AboutEvent/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -97,6 +98,7 @@ export const Pages: CollectionConfig<'pages'> = {
                         EventListing,
                         PartnerLogos,
                         ImageBlock,
+                        AboutEventBlock
                       ],
                     }),
                     FixedToolbarFeature(),
