@@ -53,6 +53,15 @@ export const hero: Field = {
         condition: isNotNone,
       },
     },
+    {
+      name: 'enableHero',
+      type: 'checkbox',
+      defaultValue: true,
+      admin: {
+        position: 'sidebar',
+        description: 'Enable or disable hero section for this page',
+      },
+    },
 
     linkGroup({
       overrides: {

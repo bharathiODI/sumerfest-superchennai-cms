@@ -176,6 +176,10 @@ export interface Page {
     heading?: string | null;
     image?: (number | null) | Media;
     mobileImage?: (number | null) | Media;
+    /**
+     * Enable or disable hero section for this page
+     */
+    enableHero?: boolean | null;
     links?:
       | {
           link: {
@@ -500,6 +504,10 @@ export interface Partner {
     heading?: string | null;
     image?: (number | null) | Media;
     mobileImage?: (number | null) | Media;
+    /**
+     * Enable or disable hero section for this page
+     */
+    enableHero?: boolean | null;
     links?:
       | {
           link: {
@@ -636,6 +644,10 @@ export interface Performer {
     heading?: string | null;
     image?: (number | null) | Media;
     mobileImage?: (number | null) | Media;
+    /**
+     * Enable or disable hero section for this page
+     */
+    enableHero?: boolean | null;
     links?:
       | {
           link: {
@@ -898,6 +910,10 @@ export interface Venue {
     heading?: string | null;
     image?: (number | null) | Media;
     mobileImage?: (number | null) | Media;
+    /**
+     * Enable or disable hero section for this page
+     */
+    enableHero?: boolean | null;
     links?:
       | {
           link: {
@@ -1021,7 +1037,7 @@ export interface EventFormField {
  */
 export interface SummerRegistration {
   id: number;
-  summer: number | SummerEvent;
+  summer?: (number | null) | SummerEvent;
   week?: (number | null) | FestivalWeek;
   status?: ('pending' | 'confirmed' | 'rejected') | null;
   name?: string | null;
@@ -1039,6 +1055,13 @@ export interface SummerRegistration {
     | string
     | number
     | boolean
+    | null;
+  attachments?:
+    | {
+        file?: (number | null) | Media;
+        fieldName?: string | null;
+        id?: string | null;
+      }[]
     | null;
   thankYouMailSent?: boolean | null;
   confirmedAt?: string | null;
@@ -1540,6 +1563,7 @@ export interface PagesSelect<T extends boolean = true> {
         heading?: T;
         image?: T;
         mobileImage?: T;
+        enableHero?: T;
         links?:
           | T
           | {
@@ -1770,6 +1794,7 @@ export interface PartnersSelect<T extends boolean = true> {
         heading?: T;
         image?: T;
         mobileImage?: T;
+        enableHero?: T;
         links?:
           | T
           | {
@@ -1839,6 +1864,7 @@ export interface PerformersSelect<T extends boolean = true> {
         heading?: T;
         image?: T;
         mobileImage?: T;
+        enableHero?: T;
         links?:
           | T
           | {
@@ -1986,6 +2012,7 @@ export interface VenuesSelect<T extends boolean = true> {
         heading?: T;
         image?: T;
         mobileImage?: T;
+        enableHero?: T;
         links?:
           | T
           | {
@@ -2117,6 +2144,13 @@ export interface SummerRegistrationsSelect<T extends boolean = true> {
   phone?: T;
   company?: T;
   values?: T;
+  attachments?:
+    | T
+    | {
+        file?: T;
+        fieldName?: T;
+        id?: T;
+      };
   thankYouMailSent?: T;
   confirmedAt?: T;
   adminMessage?: T;

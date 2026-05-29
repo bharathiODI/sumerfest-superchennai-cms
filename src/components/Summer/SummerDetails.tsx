@@ -532,7 +532,7 @@ const SummerFestDetails: React.FC<SummerFestDetailsProps> = ({ data }) => {
       <section className="bg-white py-20 ">
         <div className="container max-w-7xl mx-auto px-4">
           <div className="prose prose-lg max-w-none">
-            <LexicalRenderer content={data?.content} />
+            <LexicalRenderer content={data?.content} eventData={data} />
           </div>
         </div>
       </section>
@@ -553,7 +553,7 @@ const SummerFestDetails: React.FC<SummerFestDetailsProps> = ({ data }) => {
 
       {/* FORM */}
 
-      {isRegistrationOpen && (
+      {/* {isRegistrationOpen && (
         <section className=" py-20 ">
           <div className="mb-10 text-center">
             <h2 className="text-sm font-extrabold tracking-widest text-[#005B70] gap-2 mt-0 mb-0 flex items-center justify-center uppercase festmainheadingsss">
@@ -568,9 +568,9 @@ const SummerFestDetails: React.FC<SummerFestDetailsProps> = ({ data }) => {
           </div>
           <div className="mx-auto max-w-3xl px-4 md:px-8 formmaxcontainer">
             <div className="lg:col-span-7 bg-white rounded-2xl border border-gray-100 shadow-xl p-6 md:p-8 padddddd">
-              {/* <h2 className="text-xl font-bold tracking-wide text-[#005B70]">
+              <h2 className="text-xl font-bold tracking-wide text-[#005B70]">
                 REGISTER <span className="text-[#061E43]">FOR THIS EVENT</span>{' '}
-              </h2> */}
+              </h2>
 
               <form onSubmit={submitForm} className="py-8">
                 <div className="grid gap-8 md:grid-cols-2 flexxxxcontainer">
@@ -627,9 +627,9 @@ const SummerFestDetails: React.FC<SummerFestDetailsProps> = ({ data }) => {
                   )}
                 </div>
 
-                {/* OTP */}
+                
 
-                {/* {enableOTP && !otpVerified && (
+                {enableOTP && !otpVerified && (
                   <div className="mt-10 rounded-3xl border border-orange-200 bg-orange-50 p-8">
                     <h3 className="text-2xl font-bold">Mobile Verification</h3>
 
@@ -662,7 +662,7 @@ const SummerFestDetails: React.FC<SummerFestDetailsProps> = ({ data }) => {
                       </div>
                     )}
                   </div>
-                )} */}
+                )}
 
                 {otpVerified && (
                   <div className="mt-8 rounded-2xl border border-green-200 bg-green-50 p-5 text-green-700">
@@ -681,11 +681,11 @@ const SummerFestDetails: React.FC<SummerFestDetailsProps> = ({ data }) => {
             </div>
           </div>
         </section>
-      )}
+      )} */}
 
       {/* =========================================================
-    SUCCESS MODAL
-========================================================= */}
+       SUCCESS MODAL
+       ========================================================= */}
 
       {showSuccessModal && (
         <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 backdrop-blur-md px-4">

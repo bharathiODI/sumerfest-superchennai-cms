@@ -107,61 +107,7 @@
   }
 }
 
-/* ========================================= */
 
-.registrationGrid {
-  display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(320px, 1fr)
-  );
-
-  gap: 24px;
-}
-
-/* ========================================= */
-
-.registrationCard {
-  background: white;
-  border-radius: 28px;
-  padding: 24px;
-
-  border: 1px solid #edf0f5;
-
-  transition: all 0.3s ease;
-
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-
-  &:hover {
-    transform: translateY(-6px);
-
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
-  }
-
-  &__top {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-
-    h3 {
-      margin: 0;
-      font-size: 20px;
-      color: #111827;
-    }
-
-    p {
-      margin-top: 4px;
-      color: #6b7280;
-      font-size: 14px;
-    }
-  }
-
-  &__bottom {
-    margin-top: 24px;
-    display: flex;
-    justify-content: flex-end;
-  }
-}
 
 /* ========================================= */
 
@@ -486,12 +432,13 @@
    GRID
 ====================================================== */
 
+/* ========================================= */
+
+/* ========================================= */
+
 .registrationGrid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(auto-fill, minmax(380px, 1fr));
-
+  display: flex;
+  flex-direction: column;
   gap: 24px;
 }
 
@@ -691,4 +638,34 @@
   font-weight: 600;
 
   color: #6b7280;
+}
+
+
+.registrationTableWrapper {
+  overflow-x: auto;
+  margin-top: 30px;
+}
+
+.registrationTable {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.registrationTable th {
+  background: #061e43;
+  color: white;
+  padding: 16px;
+  text-align: left;
+}
+
+.registrationTable td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.registrationTable tr:hover {
+  background: #fafafa;
 }

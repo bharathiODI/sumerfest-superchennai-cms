@@ -54,6 +54,10 @@ export default async function Page({ params: paramsPromise }: Args) {
 
   const { hero, content } = page
 
+console.log("ENABLE HERO:", hero?.enableHero)
+ const showHero = hero?.enableHero === true
+
+
   return (
     <div>
       <PageClient />
@@ -62,14 +66,24 @@ export default async function Page({ params: paramsPromise }: Args) {
 
       {draft && <LivePreviewListener />}
 
-      <RenderHero
-        hero={{
-          ...hero,
-          heading: hero?.heading ?? undefined,
-        }}
-        slug=""
-      />
+      {page?.meta?.schema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(page.meta.schema),
+          }}
+        />
+      )}
 
+      {hero && showHero && (
+        <RenderHero
+          hero={{
+            ...hero,
+            heading: hero?.heading ?? undefined,
+          }}
+          slug=""
+        />
+      )}
       <div>
         <PageBody content={content} />
       </div>
@@ -83,7 +97,6 @@ export async function generateMetadata({ params: paramsPromise }: Args): Promise
   const page = await queryPageBySlug({
     slug,
   })
-  
 
   return generateMeta({ doc: page })
 }
@@ -96,7 +109,7 @@ const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
   const result = await payload.find({
     collection: 'pages',
     draft,
-     depth: 3,
+    depth: 3,
     limit: 1,
     pagination: false,
     overrideAccess: draft,
