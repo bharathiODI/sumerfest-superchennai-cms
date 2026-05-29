@@ -70,6 +70,33 @@ export async function POST(req: NextRequest) {
         ? summerEvent?.eventFields?.week?.id
         : summerEvent?.eventFields?.week
 
+    // MEADIA UPLOAD LOGIC########
+
+    const uploadedFiles: any[] = []
+
+    for (const [key, value] of formData.entries()) {
+      if (value instanceof File) {
+        const bytes = await value.arrayBuffer()
+        const buffer = Buffer.from(bytes)
+
+        const mediaDoc = await payload.create({
+          collection: 'media',
+          data: {},
+          file: {
+            data: buffer,
+            mimetype: value.type,
+            name: value.name,
+            size: value.size,
+          },
+        })
+
+        uploadedFiles.push({
+          file: mediaDoc.id,
+          fieldName: key,
+        })
+      }
+    }
+
     const registration = await payload.create({
       collection: 'summer-registrations',
 
@@ -88,35 +115,12 @@ export async function POST(req: NextRequest) {
 
         company: values?.company || '',
 
+        // photo: uploadedMediaId,
+        attachments: uploadedFiles,
+
         values,
       },
     })
-
-    // /* ======================================================
-    //    CREATE REGISTRATION
-    // // ====================================================== */
-    //    const payload = await getPayload({
-    //   config,
-    // })
-    // const registration = await payload.create({
-    //   collection: 'summer-registrations',
-
-    //   data: {
-    //     summer: Number(eventId),
-
-    //     status: 'pending',
-
-    //     name: values?.name || '',
-
-    //     email: values?.email || '',
-
-    //     phone: values?.phone || values?.mobile || values?.phoneNumber || '',
-
-    //     company: values?.company || '',
-
-    //     values,
-    //   },
-    // })
 
     /* ======================================================
        SEND MAIL

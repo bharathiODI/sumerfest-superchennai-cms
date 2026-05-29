@@ -40,53 +40,53 @@ export const AboutEventBlock: Block = {
        HIGHLIGHTS
     ========================================= */
 
- {
-  name: 'highlights',
-  type: 'array',
-
-  fields: [
     {
-      name: 'title',
-      type: 'text',
-    },
+      name: 'highlights',
+      type: 'array',
 
-    {
-      name: 'subtitle',
-      type: 'text',
-    },
+      fields: [
+        {
+          name: 'title',
+          type: 'text',
+        },
 
-    /* =========================
+        {
+          name: 'subtitle',
+          type: 'text',
+        },
+
+        /* =========================
        CUSTOM ICON TEXT
     ========================= */
-    {
-      name: 'iconText',
-      type: 'text',
-      admin: {
-        placeholder: 'Ex: 🎵 or A or 01',
-      },
-    },
+        {
+          name: 'iconText',
+          type: 'text',
+          admin: {
+            placeholder: 'Ex: 🎵 or A or 01',
+          },
+        },
 
-    /* =========================
+        /* =========================
        CUSTOM COLOR
     ========================= */
-    {
-      name: 'color',
-      type: 'text',
-      admin: {
-        placeholder: '#005B70',
-      },
-    },
+        {
+          name: 'color',
+          type: 'text',
+          admin: {
+            placeholder: '#005B70',
+          },
+        },
 
-    /* =========================
+        /* =========================
        SVG / IMAGE UPLOAD
     ========================= */
-    {
-      name: 'iconImage',
-      type: 'upload',
-      relationTo: 'media',
+        {
+          name: 'iconImage',
+          type: 'upload',
+          relationTo: 'media',
+        },
+      ],
     },
-  ],
-},
 
     /* =========================================
        LOCATION
