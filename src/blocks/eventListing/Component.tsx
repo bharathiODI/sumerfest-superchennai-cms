@@ -69,10 +69,32 @@ export default function EventListingComponent({
      FILTER EVENTS
   ====================================================== */
 
-  const filteredEvents =
+  // const filteredEvents =
+  //   activeWeek === 'all'
+  //     ? events
+  //     : events.filter((event) => String(event?.eventFields?.week?.id) === activeWeek)
+
+  const now = new Date()
+
+  const filteredEvents = (
     activeWeek === 'all'
       ? events
       : events.filter((event) => String(event?.eventFields?.week?.id) === activeWeek)
+  ).sort((a, b) => {
+    const aDate = new Date(a?.eventFields?.eventDates?.[0]?.date || 0)
+    const bDate = new Date(b?.eventFields?.eventDates?.[0]?.date || 0)
+
+    const aPast = aDate < now
+    const bPast = bDate < now
+
+    // Upcoming events first
+    if (aPast !== bPast) {
+      return aPast ? 1 : -1
+    }
+
+    // Sort by nearest date
+    return aDate.getTime() - bDate.getTime()
+  })
 
   /* ======================================================
      HELPERS
@@ -211,7 +233,7 @@ export default function EventListingComponent({
         {/* ======================================================
             ACTIVE WEEK TITLE
         ====================================================== */}
-
+        {/* 
         <div className="mb-10 text-center">
           <h3 className="text-sm font-extrabold tracking-widest text-[#061E43] flex items-center justify-center uppercase festmainheadingsss">
             <WaveDecoration />
@@ -222,7 +244,7 @@ export default function EventListingComponent({
 
             <WaveDecoration />
           </h3>
-        </div>
+        </div> */}
 
         {/* ======================================================
             EVENTS GRID

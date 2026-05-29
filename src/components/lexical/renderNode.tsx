@@ -22,7 +22,7 @@ export function renderNode(node: any, idx: number): React.ReactNode {
     ------------------------------------------------ */
     case 'paragraph':
       return (
-        <p key={idx} className="mb-0 text-lg leading-8 text-gray-700">
+        <p key={idx} className="mb-0 text-lg leading-8 text-gray-700 paragaphhlexical">
           {renderText(node.children)}
         </p>
       )
@@ -34,7 +34,10 @@ export function renderNode(node: any, idx: number): React.ReactNode {
       const Tag = (node.tag || 'h2') as React.ElementType
 
       return (
-        <Tag key={idx} className={`blog-${node.tag || 'h2'}`}>
+        <Tag
+          key={idx}
+          className={` paragaphhlexical text-center blog-${node.tag || 'h2'} text-[#005b70] text-3xl font-bold tracking-wide  mt-0 mb-0`}
+        >
           {renderText(node.children)}
         </Tag>
       )

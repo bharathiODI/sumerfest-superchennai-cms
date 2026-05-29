@@ -8,8 +8,7 @@ import React, { useEffect, useState } from 'react'
 //######################## ASSETS  #############################################
 import iconEmail from '../assets/images/HomePage-Images/Icons/mobile-Header-Email.svg'
 import iconEvents from '../assets/images/HomePage-Images/Icons/mobile-Header-Events.svg'
-import iconHamburger from '../assets/images/HomePage-Images/Icons/mobile-Header-Hamburger.svg'
-import iconSearch from '../assets/images/HomePage-Images/Icons/mobile-Header-Search.svg'
+
 //######################## TYPES  #############################################
 import { HeaderClientProps, MenuItem } from '@/models/Header'
 import Image from 'next/image'
@@ -71,13 +70,6 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
     menuTimeout = setTimeout(() => {
       setActiveMenu(null)
     }, 200)
-  }
-
-  const handleScrollToSearchForm = () => {
-    const element = document.getElementById('SearchForm')
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
   }
 
   //################# STICKY LOGIC ###################
@@ -148,7 +140,21 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
             </div>
 
             {/* RIGHT SIDE */}
-            <div className="flex justify-end">{/* Optional Right Content */}</div>
+            <div className="flex justify-end">
+              <Link href="/" aria-label="Home">
+                {data?.secondarylogo &&
+                  typeof data.secondarylogo === 'object' &&
+                  'url' in data.secondarylogo && (
+                    <Image
+                      src={data.secondarylogo.url || ''}
+                      alt={data.secondarylogo.alt || 'Site Logo'}
+                      width={150}
+                      height={60}
+                      className="h-auto w-[150px] object-contain"
+                    />
+                  )}
+              </Link>
+            </div>
           </div>
 
           {/* #################### HOVER MENU ########################### */}
@@ -236,26 +242,27 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
 
         {/* #################### MOBILE NAVBAR ########################### */}
 
-        <div className="flex items-center justify-between bg-white px-4 py-3 shadow-sm md:hidden">
+        <div className="flex items-center justify-between bg-white px-4 py-3 shadow-sm md:hidden mobileeebannerrrsss">
           {/* EVENTS ICON */}
 
-          <div className="flex h-10 w-10 items-center justify-center">
+          {/* <div className="flex h-10 w-10 items-center justify-center">
             <img src={iconEvents.src} alt="Events Icon" />
-          </div>
+          </div> */}
 
           {/* EMAIL ICON */}
 
-          <div className="flex h-10 w-10 items-center justify-center">
+          {/* <div className="flex h-10 w-10 items-center justify-center">
             <img src={iconEmail.src} alt="Email Icon" />
-          </div>
+          </div> */}
 
           {/* MOBILE LOGO */}
 
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center ">
             <Link href="/">
               {data?.logo && typeof data.logo === 'object' && 'url' in data.logo && (
                 <img
-                  src={`/media/${data.logo.filename}`}
+                  src="https://www.superchennai.com/images/HomePage-Images/Superchennai.png"
+                  // src={`/media/${data.logo.filename}`}
                   alt={data.logo.alt || 'Site Logo'}
                   className="max-h-[60px] object-contain"
                 />

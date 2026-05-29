@@ -19,6 +19,16 @@ export const Header: GlobalConfig = {
         description: 'Upload the logo for the header.',
       },
     },
+    {
+      name: 'secondarylogo',
+      label: 'rightsideLogo',
+      type: 'upload',
+      relationTo: 'media',
+      required: false,
+      admin: {
+        description: 'Upload the logo for the header right side.',
+      },
+    },
     // #################### NAV ITEMS #######################
 
     {
