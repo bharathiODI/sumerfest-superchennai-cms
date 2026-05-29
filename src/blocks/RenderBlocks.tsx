@@ -77,6 +77,9 @@ import { StatsBlockComponent } from './stats/Component'
 import { WeekTimelineComponent } from './weekTimeline/Component'
 import ImageBlockComponent from './imageBlock/Component'
 import AboutEventBlockComponent from './AboutEvent/Component'
+import EventRegistrationBlockComponent from './EventRegistrationForm/coponents'
+import { MediaCarouselBlock } from './MediaCarousel/Component'
+import { AboutSummerFestBlockComponent } from './AboutSummerFestBlock/Component'
 
 /**
  * Map Payload blockType → React Component
@@ -93,6 +96,9 @@ const blockComponents: Record<string, React.FC<any>> = {
   heroSliderBlock: HeroSliderBlock,
   ImageBlock: ImageBlockComponent,
   AboutEventBlock: AboutEventBlockComponent,
+  eventRegistrationFormBlock: EventRegistrationBlockComponent,
+  mediaCarousel: MediaCarouselBlock,
+  aboutSummerFestBlock: AboutSummerFestBlockComponent,
 }
 
 /**

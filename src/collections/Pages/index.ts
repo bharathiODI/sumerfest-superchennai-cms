@@ -8,9 +8,14 @@ import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
 import { revalidateDelete, revalidatePage } from './hooks/revalidatePage'
 
+import { AboutEventBlock } from '@/blocks/AboutEvent/config'
 import { Banner } from '@/blocks/Banner/config'
 import { Code } from '@/blocks/Code/config'
+import { EventListing } from '@/blocks/eventListing/config'
+import { EventRegistrationBlock } from '@/blocks/eventRegistrationPoints/config'
+import { ImageBlock } from '@/blocks/imageBlock/config'
 import { MediaBlock } from '@/blocks/MediaBlock/config'
+import { PartnerCarouselBlock } from '@/blocks/Partners/config'
 import { VideoBlock } from '@/blocks/VideoBlock/config'
 import { SEOFieldSchema } from '@/fields/seo'
 import {
@@ -28,12 +33,8 @@ import {
   InlineToolbarFeature,
   lexicalEditor,
 } from '@payloadcms/richtext-lexical'
-import { EventListing } from '@/blocks/eventListing/config'
-import { PartnerLogos } from '@/blocks/partnerLogos/config'
-import { ImageBlock } from '@/blocks/imageBlock/config'
-import { AboutEventBlock } from '@/blocks/AboutEvent/config'
-import { EventRegistrationBlock } from '@/blocks/eventRegistrationPoints/config'
-import { PartnerCarouselBlock } from '@/blocks/Partners/config'
+import { MediaCarousel } from '@/blocks/MediaCarousel/config'
+import { AboutSummerFestBlock } from '@/blocks/AboutSummerFestBlock/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -103,6 +104,8 @@ export const Pages: CollectionConfig<'pages'> = {
                         MediaBlock,
                         EventRegistrationBlock,
                         PartnerCarouselBlock,
+                        MediaCarousel,
+                        AboutSummerFestBlock
                       ],
                     }),
                     FixedToolbarFeature(),
