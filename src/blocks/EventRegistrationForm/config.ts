@@ -22,6 +22,19 @@ export const EventRegistrationFormBlock: Block = {
     },
 
     {
+      name: 'sectionSubTitle',
+      type: 'text',
+      defaultValue: 'Submit Your Data',
+    },
+
+    {
+      name: 'sectionDescrption',
+      type: 'text',
+      defaultValue:
+        'Fill out the registration form below to participate in this event. Our team will contact you with further details after submission.',
+    },
+
+    {
       name: 'enableGlassEffect',
       type: 'checkbox',
       defaultValue: true,

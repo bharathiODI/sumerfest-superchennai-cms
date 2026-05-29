@@ -1056,6 +1056,13 @@ export interface SummerRegistration {
     | number
     | boolean
     | null;
+  attachments?:
+    | {
+        file?: (number | null) | Media;
+        fieldName?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   thankYouMailSent?: boolean | null;
   confirmedAt?: string | null;
   /**
@@ -2137,6 +2144,13 @@ export interface SummerRegistrationsSelect<T extends boolean = true> {
   phone?: T;
   company?: T;
   values?: T;
+  attachments?:
+    | T
+    | {
+        file?: T;
+        fieldName?: T;
+        id?: T;
+      };
   thankYouMailSent?: T;
   confirmedAt?: T;
   adminMessage?: T;

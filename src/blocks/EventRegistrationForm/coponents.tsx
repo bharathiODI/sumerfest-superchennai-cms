@@ -87,6 +87,10 @@ const EventRegistrationBlockComponent: React.FC<Props> = ({ block, eventData }) 
 
   const title = eventData?.eventFields?.title || eventData?.title || 'Event'
 
+  const sectionSubTitle = block?.sectionSubTitle || ''
+
+  const sectionDescrption = block?.sectionDescrption || ''
+
   const isRegistrationOpen = registrationSettings?.isRegistrationOpen ?? false
 
   const enableOTP = registrationSettings?.enableOTP ?? false
@@ -388,7 +392,7 @@ const EventRegistrationBlockComponent: React.FC<Props> = ({ block, eventData }) 
             <div
               className={`
       overflow-hidden rounded-[30px]
-      border border-gray-100 bg-white shadow-2xl
+      border  bg-white shadow-1xl
       ${showImage && sideImage?.url ? 'grid items-stretch lg:grid-cols-2' : ''}
     `}
             >
@@ -397,7 +401,7 @@ const EventRegistrationBlockComponent: React.FC<Props> = ({ block, eventData }) 
     ========================================================= */}
 
               {showImage && sideImage?.url && imagePosition === 'left' && (
-                <div className="relative h-[320px] lg:h-auto lg:min-h-[750px]">
+                <div className="relative h-[320px] lg:min-h-full self-stretch">
                   <Image
                     src={sideImage.url}
                     alt={sideImage.alt || title}
@@ -418,6 +422,23 @@ const EventRegistrationBlockComponent: React.FC<Props> = ({ block, eventData }) 
         ${block?.enableGlassEffect ? 'backdrop-blur-xl bg-white/90' : 'bg-white'}
       `}
               >
+                <div className="mb-10">
+                  <div className="inline-flex items-center gap-2 rounded-full bg-orange-100 px-4 py-2">
+                    <Sparkles className="h-4 w-4 text-orange-500" />
+
+                    <span className="text-xs font-bold uppercase tracking-[3px] text-orange-500">
+                      Registration Form
+                    </span>
+                  </div>
+
+                  <h2 className="mt-5 text-4xl font-black leading-tight text-[#061E43]">
+                    {sectionSubTitle}
+                  </h2>
+
+                  <p className="mt-4 max-w-xl text-base leading-7 text-gray-500">
+                    {sectionDescrption}
+                  </p>
+                </div>
                 <form onSubmit={submitForm} className="space-y-8">
                   {/* =========================================================
            FIELDS

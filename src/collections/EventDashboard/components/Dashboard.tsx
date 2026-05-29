@@ -122,7 +122,59 @@ export default function Dashboard() {
      RENDER VALUE
   ====================================================== */
 
+  // const renderValue = (value: any) => {
+  //   if (Array.isArray(value)) {
+  //     return (
+  //       <div className="fieldTags">
+  //         {value.map((item, i) => (
+  //           <span key={i}>{String(item)}</span>
+  //         ))}
+  //       </div>
+  //     )
+  //   }
+
+  //   if (typeof value === 'boolean') {
+  //     return value ? 'Yes' : 'No'
+  //   }
+
+  //   if (typeof value === 'object' && value !== null) {
+  //     return <pre>{JSON.stringify(value, null, 2)}</pre>
+  //   }
+
+  //   return String(value || '-')
+  // }
+
   const renderValue = (value: any) => {
+    /* ======================================================
+     FILE ARRAY
+  ====================================================== */
+
+    if (Array.isArray(value) && value.length && typeof value[0] === 'object' && value[0]?.file) {
+      return (
+        <div className="uploadedFiles">
+          {value.map((item: any, i: number) => {
+            const file = item.file
+
+            return (
+              <a
+                key={i}
+                href={file?.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="uploadedFile"
+              >
+                📎 {file?.filename || 'View File'}
+              </a>
+            )
+          })}
+        </div>
+      )
+    }
+
+    /* ======================================================
+     NORMAL ARRAY
+  ====================================================== */
+
     if (Array.isArray(value)) {
       return (
         <div className="fieldTags">
@@ -133,9 +185,17 @@ export default function Dashboard() {
       )
     }
 
+    /* ======================================================
+     BOOLEAN
+  ====================================================== */
+
     if (typeof value === 'boolean') {
       return value ? 'Yes' : 'No'
     }
+
+    /* ======================================================
+     OBJECT
+  ====================================================== */
 
     if (typeof value === 'object' && value !== null) {
       return <pre>{JSON.stringify(value, null, 2)}</pre>
@@ -270,7 +330,7 @@ export default function Dashboard() {
 
                 {/* FIELDS */}
 
-                <div className="registrationCard__fields">
+                {/* <div className="registrationCard__fields">
                   {Object.entries(item.values || {}).map(([key, value]: any, i) => (
                     <div key={i} className="fieldItem">
                       <span className="fieldLabel">{formatLabel(key)}</span>
@@ -278,6 +338,55 @@ export default function Dashboard() {
                       <div className="fieldValue">{renderValue(value)}</div>
                     </div>
                   ))}
+
+                  {item.attachments?.length > 0 && (
+                    <div className="fieldItem">
+                      <span className="fieldLabel">Uploaded Files</span>
+
+                      <div className="fieldValue">{renderValue(item.attachments)}</div>
+                    </div>
+                  )}
+                </div> */}
+
+                <div className="registrationTableWrapper">
+                  <table className="registrationTable">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Event</th>
+                        <th>Status</th>
+                        <th>Files</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      {groupedEvents[selectedEvent]?.map((item: any, index: number) => (
+                        <tr key={index}>
+                          <td>{item?.name}</td>
+
+                          <td>{item?.email}</td>
+
+                          <td>{item?.phone}</td>
+
+                          <td>{item?.summer?.eventFields?.title || item?.summer?.title}</td>
+
+                          <td>
+                            <span className={`status status--${item.status}`}>{item.status}</span>
+                          </td>
+
+                          <td>
+                            {item.attachments?.map((fileItem: any, i: number) => (
+                              <a key={i} href={fileItem?.file?.url} target="_blank">
+                                File {i + 1}
+                              </a>
+                            ))}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
               </div>
             ))

@@ -142,6 +142,29 @@ export const SummerRegistrations: CollectionConfig = {
     },
 
     /* ======================================================
+   FILES
+====================================================== */
+
+    {
+      name: 'attachments',
+      label: 'Uploaded Files',
+      type: 'array',
+
+      fields: [
+        {
+          name: 'file',
+          type: 'upload',
+          relationTo: 'media',
+        },
+
+        {
+          name: 'fieldName',
+          type: 'text',
+        },
+      ],
+    },
+
+    /* ======================================================
        MAIL SETTINGS
     ====================================================== */
 
