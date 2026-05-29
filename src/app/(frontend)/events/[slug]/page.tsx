@@ -85,6 +85,7 @@ export async function generateMetadata({ params: paramsPromise }: Args): Promise
 
   return generateMeta({
     doc: summerFestEvents as any,
+    collection: 'events',
   })
 }
 

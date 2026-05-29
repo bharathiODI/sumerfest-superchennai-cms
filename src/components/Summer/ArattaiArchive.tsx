@@ -1,5 +1,4 @@
-import React from 'react'
-import { ArattaiCard } from './ArattaiCard'
+import { SummerCard } from './SummerCard'
 
 export const ArattaiArchive = ({ events }: { events: any[] }) => {
   if (!events?.length) return null
@@ -8,7 +7,7 @@ export const ArattaiArchive = ({ events }: { events: any[] }) => {
     <section className="container py-8">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {events.map((event, i) => (
-          <ArattaiCard key={i} doc={event} />
+          <SummerCard key={i} doc={event} />
         ))}
       </div>
     </section>

@@ -32,12 +32,27 @@ export const revalidatePage: CollectionAfterChangeHook<Page> = ({
   return doc
 }
 
-export const revalidateDelete: CollectionAfterDeleteHook<Page> = ({ doc, req: { context } }) => {
-  if (!context.disableRevalidate) {
-    const path = doc?.slug === 'home' ? '/' : `/${doc?.slug}`
-    revalidatePath(path)
-    revalidateTag('events-sitemap')
-  }
+// export const revalidateDelete: CollectionAfterDeleteHook<Page> = ({ doc, req: { context } }) => {
+//   if (!context.disableRevalidate) {
+//     const path = doc?.slug === 'home' ? '/' : `/${doc?.slug}`
+//     revalidatePath(path)
+//     revalidateTag('events-sitemap')
+//   }
+
+//   return doc
+// }
+export const revalidateDelete: CollectionAfterDeleteHook = async ({ doc }) => {
+  process.nextTick(() => {
+    try {
+      revalidatePath('/events')
+
+      if (doc?.slug) {
+        revalidatePath(`/events/${doc.slug}`)
+      }
+    } catch (err) {
+      console.error(err)
+    }
+  })
 
   return doc
 }

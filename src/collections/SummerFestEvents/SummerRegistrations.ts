@@ -28,7 +28,7 @@ export const SummerRegistrations: CollectionConfig = {
       label: 'summer Event',
       type: 'relationship',
       relationTo: 'summer-events',
-      required: true,
+      required: false,
 
       admin: {
         width: '50%',

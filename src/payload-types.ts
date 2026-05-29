@@ -176,6 +176,10 @@ export interface Page {
     heading?: string | null;
     image?: (number | null) | Media;
     mobileImage?: (number | null) | Media;
+    /**
+     * Enable or disable hero section for this page
+     */
+    enableHero?: boolean | null;
     links?:
       | {
           link: {
@@ -500,6 +504,10 @@ export interface Partner {
     heading?: string | null;
     image?: (number | null) | Media;
     mobileImage?: (number | null) | Media;
+    /**
+     * Enable or disable hero section for this page
+     */
+    enableHero?: boolean | null;
     links?:
       | {
           link: {
@@ -636,6 +644,10 @@ export interface Performer {
     heading?: string | null;
     image?: (number | null) | Media;
     mobileImage?: (number | null) | Media;
+    /**
+     * Enable or disable hero section for this page
+     */
+    enableHero?: boolean | null;
     links?:
       | {
           link: {
@@ -898,6 +910,10 @@ export interface Venue {
     heading?: string | null;
     image?: (number | null) | Media;
     mobileImage?: (number | null) | Media;
+    /**
+     * Enable or disable hero section for this page
+     */
+    enableHero?: boolean | null;
     links?:
       | {
           link: {
@@ -1021,7 +1037,7 @@ export interface EventFormField {
  */
 export interface SummerRegistration {
   id: number;
-  summer: number | SummerEvent;
+  summer?: (number | null) | SummerEvent;
   week?: (number | null) | FestivalWeek;
   status?: ('pending' | 'confirmed' | 'rejected') | null;
   name?: string | null;
@@ -1540,6 +1556,7 @@ export interface PagesSelect<T extends boolean = true> {
         heading?: T;
         image?: T;
         mobileImage?: T;
+        enableHero?: T;
         links?:
           | T
           | {
@@ -1770,6 +1787,7 @@ export interface PartnersSelect<T extends boolean = true> {
         heading?: T;
         image?: T;
         mobileImage?: T;
+        enableHero?: T;
         links?:
           | T
           | {
@@ -1839,6 +1857,7 @@ export interface PerformersSelect<T extends boolean = true> {
         heading?: T;
         image?: T;
         mobileImage?: T;
+        enableHero?: T;
         links?:
           | T
           | {
@@ -1986,6 +2005,7 @@ export interface VenuesSelect<T extends boolean = true> {
         heading?: T;
         image?: T;
         mobileImage?: T;
+        enableHero?: T;
         links?:
           | T
           | {

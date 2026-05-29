@@ -152,10 +152,11 @@ export default function EventListingComponent({
         ====================================================== */}
 
         <div className="mb-10 text-center">
+          <h1 className="sr-only">{heading}</h1>
           <h2 className="text-sm font-bold tracking-widest text-[#061E43] flex items-center justify-center uppercase festmainheadingsss">
             <WaveDecoration />
 
-            {heading || 'Festival Events'}
+            {heading || ''}
 
             <WaveDecoration />
           </h2>
@@ -330,6 +331,7 @@ export default function EventListingComponent({
                 <div className="flex flex-1 flex-col justify-between p-6">
                   <div>
                     {/* TITLE */}
+
                     <h3 className="text-lg font-bold text-[#061E43] mb-4 tracking-wide festheadingsss">
                       {title}
                     </h3>
