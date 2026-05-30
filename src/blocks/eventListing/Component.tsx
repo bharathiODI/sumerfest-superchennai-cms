@@ -152,7 +152,6 @@ export default function EventListingComponent({
         ====================================================== */}
 
         <div className="mb-10 text-center">
-          <h1 className="sr-only">{heading}</h1>
           <h2 className="text-sm font-bold tracking-widest text-[#061E43] flex items-center justify-center uppercase festmainheadingsss">
             <WaveDecoration />
 
