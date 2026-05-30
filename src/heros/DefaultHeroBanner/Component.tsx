@@ -60,8 +60,11 @@
 // }
 
 /* eslint-disable @next/next/no-img-element */
+'use client' // <-- Intha line-ah top-la compulsory add pannunga
+
 import React from 'react'
 import defaultImage from '../../assets/images/AccodomationBannerr.jpg'
+import Link from 'next/link' // Next.js Link import pannunga
 
 interface ImageObject {
   url: string
@@ -88,28 +91,37 @@ export const DefaultHeroBanner: React.FC<Props> = ({ heading, image, mobileImage
         ? `/api/media/${mobileImage}`
         : imageUrl
 
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault()
+    const targetElement = document.getElementById('upcomingevents')
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
   return (
-    <div className="w-full relative overflow-hidden">
-      {/* Desktop Image */}
-      <img
-        src={imageUrl || defaultImage.src}
-        alt="Banner"
-        className="hidden sm:block w-full h-auto object-contain"
-      />
+    <Link href="#upcomingevents" onClick={handleScroll} className="block cursor-pointer">
+      <div className="w-full relative overflow-hidden">
+        {/* Desktop Image */}
+        <img
+          src={imageUrl || defaultImage.src}
+          alt="Banner"
+          className="hidden sm:block w-full h-auto object-contain"
+        />
 
-      {/* Mobile Image */}
-      <img
-        src={mobileImageUrl || imageUrl || defaultImage.src}
-        alt="Mobile Banner"
-        className="block sm:hidden w-full h-auto object-contain"
-      />
+        {/* Mobile Image */}
+        <img
+          src={mobileImageUrl || imageUrl || defaultImage.src}
+          alt="Mobile Banner"
+          className="block sm:hidden w-full h-auto object-contain"
+        />
 
-      {/* Heading */}
-      <div className="absolute inset-0 flex items-center justify-center z-10 px-4">
-        {/* <h3 className="text-white text-3xl md:text-5xl lg:text-6xl font-bold">
+        {/* Heading */}
+        <div className="absolute inset-0 flex items-center justify-center z-10 px-4">
+          {/* <h3 className="text-white text-3xl md:text-5xl lg:text-6xl font-bold">
           {heading || 'Welcome'}
         </h3> */}
+        </div>
       </div>
-    </div>
+    </Link>
   )
 }

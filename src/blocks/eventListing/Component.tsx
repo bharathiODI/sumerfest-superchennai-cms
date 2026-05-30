@@ -141,6 +141,7 @@ export default function EventListingComponent({
 
   return (
     <section
+      id="upcomingevents"
       className="relative overflow-hidden bg-white py-5 "
       style={{
         fontFamily: "'Poppins', sans-serif",
@@ -171,13 +172,13 @@ export default function EventListingComponent({
             WEEK TABS
         ====================================================== */}
 
-        <div className="mb-14 grid grid-cols-2 gap-9 md:grid-cols-5">
+        <div className="mb-14 grid grid-cols-2 gap-9 md:grid-cols-5 flexcardscontainerrr">
           <button
             onClick={() => setActiveWeek('all')}
-            className={`rounded-xl border px-4 py-4 text-center transition-all ${
+            className={`eveetscardsbuttonss rounded-xl border px-4 py-4 text-center transition-all ${
               activeWeek === 'all'
-                ? 'border-[#005B70] bg-[#005B70] font-semibold text-white shadow-md'
-                : 'border-gray-200 bg-white text-slate-700 hover:border-gray-300'
+                ? ' border-[#005B70] bg-[#005B70] font-semibold text-white shadow-md'
+                : ' border-gray-200 bg-white text-slate-700 hover:border-gray-300'
             }`}
           >
             <div className="text-[10px] uppercase font-semibold tracking-widest opacity-90 festviewwdetails">

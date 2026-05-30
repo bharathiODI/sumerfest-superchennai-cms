@@ -119,7 +119,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
                     alt={data.logo.alt || 'Site Logo'}
                     width={150}
                     height={60}
-                    className="h-auto w-[150px] object-contain"
+                    className="h-auto w-[100px] object-contain "
                   />
                 )}
               </a>
@@ -151,7 +151,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
                       alt={data.secondarylogo.alt || 'Secondary Logo'}
                       width={150}
                       height={60}
-                      className="h-auto w-[150px] object-contain"
+                      className="h-auto w-[100px] object-contain "
                     />
                   )}
               </a>
@@ -250,19 +250,19 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
             <img src={iconEvents.src} alt="Events Icon" />
           </div> */}
 
-          <div className="flex h-10 w-10  items-center justify-center">
+          <div className="flex h-10 w-10  items-center justify-center mobilebannerrrlayouuttt">
             <Link href="/">
               {data?.logo && typeof data.logo === 'object' && 'url' in data.logo && (
                 <img
                   src={`/media/${data.logo.filename}`}
                   alt={data.logo.alt || 'Site Logo'}
-                  className="max-h-[60px] object-contain"
+                  className="max-h-[150px] object-contain superchennailogoosizeee"
                 />
               )}
             </Link>
           </div>
 
-          <div className="flex h-10 w-10 items-center justify-center ">
+          <div className="flex h-10 w-10 items-center justify-center  mobilebannerrrlayouuttt">
             <Link href="/">
               {data?.secondarylogo &&
                 typeof data.secondarylogo === 'object' &&
@@ -270,7 +270,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
                   <img
                     src={`/media/${data.secondarylogo.filename}`}
                     alt={data.secondarylogo.alt || 'Site Logo'}
-                    className="max-h-[60px] object-contain"
+                    className="max-h-[150px] object-contain superchennailogoosizeee"
                   />
                 )}
             </Link>
