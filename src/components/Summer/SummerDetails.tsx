@@ -499,7 +499,7 @@ const SummerFestDetails: React.FC<SummerFestDetailsProps> = ({ data }) => {
               width={800}
               height={1200}
               priority
-              className="block md:hidden w-full h-auto object-contain mt-10"
+              className="block md:hidden w-full h-auto object-contain mt-20"
             />
           )}
 

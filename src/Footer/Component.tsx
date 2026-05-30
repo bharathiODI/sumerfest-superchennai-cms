@@ -16,7 +16,7 @@ export default async function Footer() {
               LEFT SIDE — SOCIAL MEDIA
           ===================================================== */}
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 flexxxconatinerrr">
             {socialMedia?.map((item: any, index: number) => {
               const imageUrl =
                 item?.icon?.url || item?.icon?.sizes?.thumbnail?.url || defaultImage.src
