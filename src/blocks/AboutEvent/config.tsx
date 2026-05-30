@@ -55,39 +55,35 @@ export const AboutEventBlock: Block = {
           type: 'text',
         },
 
+        /* =========================
+       CUSTOM ICON TEXT
+    ========================= */
         {
-          name: 'icon',
-          type: 'select',
-
-          options: [
-            {
-              label: 'Utensils',
-              value: 'utensils',
-            },
-
-            {
-              label: 'Music',
-              value: 'music',
-            },
-
-            {
-              label: 'Users',
-              value: 'users',
-            },
-
-            {
-              label: 'Award',
-              value: 'award',
-            },
-          ],
+          name: 'iconText',
+          type: 'text',
+          admin: {
+            placeholder: 'Ex: 🎵 or A or 01',
+          },
         },
 
+        /* =========================
+       CUSTOM COLOR
+    ========================= */
         {
           name: 'color',
           type: 'text',
           admin: {
             placeholder: '#005B70',
           },
+        },
+
+        /* =========================
+       SVG / IMAGE UPLOAD
+    ========================= */
+        {
+          name: 'iconImage',
+          type: 'upload',
+          relationTo: 'media',
         },
       ],
     },

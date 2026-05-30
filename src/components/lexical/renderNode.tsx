@@ -9,8 +9,11 @@ import MediaBlock from './blocks/MediaBlock'
 import VideoBlock from './blocks/VideoBlock'
 import ImageBlockComponent from '@/blocks/imageBlock/Component'
 import AboutEventBlockComponent from '@/blocks/AboutEvent/Component'
+import EventRegistrationBlockComponent from '@/blocks/EventRegistrationForm/coponents'
+import { MediaCarouselBlock } from '@/blocks/MediaCarousel/Component'
+import { AboutSummerFestBlockComponent } from '@/blocks/AboutSummerFestBlock/Component'
 
-export function renderNode(node: any, idx: number): React.ReactNode {
+export function renderNode(node: any, idx: number, eventData?: any): React.ReactNode {
   /* ------------------------------------------------
    DEBUG
   ------------------------------------------------ */
@@ -109,6 +112,24 @@ export function renderNode(node: any, idx: number): React.ReactNode {
       if (blockType === 'aboutEventBlock') {
         return <AboutEventBlockComponent key={idx} {...node.fields} />
       }
+
+      /* =========================================================
+         NEW EVENT REGISTRATION BLOCK
+      ========================================================= */
+
+      if (blockType === 'eventRegistrationFormBlock') {
+        return (
+          <EventRegistrationBlockComponent key={idx} block={node.fields} eventData={eventData} />
+        )
+      }
+
+      if (blockType === 'mediaCarousel') {
+        return <MediaCarouselBlock key={idx} {...node.fields} />
+      }
+      if (blockType === 'aboutSummerFestBlock') {
+        return <AboutSummerFestBlockComponent key={idx} {...node.fields} />
+      }
+
 
       return null
     }

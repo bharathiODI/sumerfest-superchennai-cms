@@ -7,11 +7,12 @@ import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
 import { revalidateDelete, revalidatePage } from './hooks/revalidatePage'
 
+import { AboutEventBlock } from '@/blocks/AboutEvent/config'
 import { Banner } from '@/blocks/Banner/config'
 import { Code } from '@/blocks/Code/config'
 import { EventRegistrationBlock } from '@/blocks/eventRegistrationPoints/config'
 import { MediaBlock } from '@/blocks/MediaBlock/config'
-import { PartnerLogos } from '@/blocks/partnerLogos/config'
+import { PartnerCarouselBlock } from '@/blocks/Partners/config'
 import { VideoBlock } from '@/blocks/VideoBlock/config'
 import { SEOFieldSchema } from '@/fields/seo'
 import {
@@ -29,8 +30,7 @@ import {
   InlineToolbarFeature,
   lexicalEditor,
 } from '@payloadcms/richtext-lexical'
-import { PartnerCarouselBlock } from '@/blocks/Partners/config'
-import { AboutEventBlock } from '@/blocks/AboutEvent/config'
+import { EventRegistrationFormBlock } from '@/blocks/EventRegistrationForm/config'
 
 export const SummerFestEvents: CollectionConfig<'summer-events'> = {
   slug: 'summer-events',
@@ -103,6 +103,7 @@ export const SummerFestEvents: CollectionConfig<'summer-events'> = {
                         EventRegistrationBlock,
                         PartnerCarouselBlock,
                         AboutEventBlock,
+                        EventRegistrationFormBlock,
                       ],
                     }),
                     FixedToolbarFeature(),
@@ -286,8 +287,8 @@ export const SummerFestEvents: CollectionConfig<'summer-events'> = {
             },
 
             /* =========================================================
-    DYNAMIC FORM FIELDS
-========================================================= */
+            DYNAMIC FORM FIELDS
+            ========================================================= */
 
             {
               name: 'customFields',

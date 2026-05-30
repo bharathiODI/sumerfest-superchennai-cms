@@ -28,7 +28,7 @@ export const SummerRegistrations: CollectionConfig = {
       label: 'summer Event',
       type: 'relationship',
       relationTo: 'summer-events',
-      required: true,
+      required: false,
 
       admin: {
         width: '50%',
@@ -139,6 +139,29 @@ export const SummerRegistrations: CollectionConfig = {
           Field: '@/collections/SummerFestEvents/components/RegistrationViewer',
         },
       },
+    },
+
+    /* ======================================================
+   FILES
+====================================================== */
+
+    {
+      name: 'attachments',
+      label: 'Uploaded Files',
+      type: 'array',
+
+      fields: [
+        {
+          name: 'file',
+          type: 'upload',
+          relationTo: 'media',
+        },
+
+        {
+          name: 'fieldName',
+          type: 'text',
+        },
+      ],
     },
 
     /* ======================================================
