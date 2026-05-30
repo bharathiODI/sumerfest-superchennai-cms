@@ -65,6 +65,32 @@ html {
   font-style: normal;
 }
 
+.displayyycategoryyyy {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  row-gap: 30px;
+  padding-bottom: 25px;
+}
+
+.displayyycategoryyyy .flex.gap-4 {
+  width: max-content;
+  margin-top: 0;
+  max-width: 35%;
+}
+
+
+.eveentssbuttonss {
+  width: max-content;
+  padding: 5px 20px;
+}
+
+.maineveentssbuttonss {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
 
 @media (max-width:700px) {
   .mobileimagessss {
@@ -72,10 +98,47 @@ html {
     width: 100%;
   }
 
+  .displayyycategoryyyy .flex.gap-4 {
+    width: 100%;
+    max-width: 100%;
+  }
 
   /* .mobileeebannerrrsss {
     justify-content: center !important;
   } */
+
+
+  .superchennailogoosizeee {
+    max-height: 100px !important;
+  }
+
+  .mobilebannerrrlayouuttt {
+    height: 70px !important;
+    width: 85px;
+  }
+
+  .flexxxconatinerrr {
+    justify-content: center;
+  }
+
+  .flexcardscontainerrr {
+    display: flex;
+    gap: 20px;
+    overflow: scroll;
+    justify-content: flex-start;
+  }
+
+  .flexcardscontainerrr button {
+    flex-shrink: 0;
+    padding: 10px 27px;
+  }
+
+  .flexcardscontainerrr button .festparaa {
+    font-size: 14px !important;
+    line-height: 23px;
+    font-weight: 500 !important;
+
+  }
 }
 
 

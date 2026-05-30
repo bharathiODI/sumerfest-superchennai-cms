@@ -894,6 +894,7 @@ export interface SummerEvent {
         )[]
       | null;
     ticketType?: ('Free' | 'Ticketed' | 'Registration Required') | null;
+    ticketPrice?: string | null;
     /**
      * Check if this event is suitable for families/children.
      */
@@ -2053,6 +2054,7 @@ export interface SummerEventsSelect<T extends boolean = true> {
         ageLimit?: T;
         language?: T;
         ticketType?: T;
+        ticketPrice?: T;
         familyFriendly?: T;
         featured?: T;
         link?: T;

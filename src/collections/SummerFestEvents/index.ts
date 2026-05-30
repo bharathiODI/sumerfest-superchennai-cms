@@ -342,6 +342,10 @@ export const SummerFestEvents: CollectionConfig<'summer-events'> = {
               options: ['Free', 'Ticketed', 'Registration Required'],
             },
             {
+              name: 'ticketPrice',
+              type: 'text',
+            },
+            {
               name: 'familyFriendly',
               type: 'checkbox',
               label: 'Family Friendly',
