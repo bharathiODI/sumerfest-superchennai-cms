@@ -80,6 +80,7 @@ import AboutEventBlockComponent from './AboutEvent/Component'
 import EventRegistrationBlockComponent from './EventRegistrationForm/coponents'
 import { MediaCarouselBlock } from './MediaCarousel/Component'
 import { AboutSummerFestBlockComponent } from './AboutSummerFestBlock/Component'
+import FeaturedEventBlockComponent from './EventsDetails/Component'
 
 /**
  * Map Payload blockType → React Component
@@ -99,6 +100,7 @@ const blockComponents: Record<string, React.FC<any>> = {
   eventRegistrationFormBlock: EventRegistrationBlockComponent,
   mediaCarousel: MediaCarouselBlock,
   aboutSummerFestBlock: AboutSummerFestBlockComponent,
+  EventDetailsBlock:FeaturedEventBlockComponent
 }
 
 /**
