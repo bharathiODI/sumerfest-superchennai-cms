@@ -112,7 +112,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
           >
             {/* LOGO */}
             <div className="flex justify-start">
-              <a href="/" aria-label="Home">
+              <a href="https://www.superchennai.com/" aria-label="Home">
                 {data?.logo && typeof data.logo === 'object' && 'filename' in data.logo && (
                   <img
                     src={`/media/${data.logo.filename}`}

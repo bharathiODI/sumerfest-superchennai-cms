@@ -12,6 +12,7 @@ import AboutEventBlockComponent from '@/blocks/AboutEvent/Component'
 import EventRegistrationBlockComponent from '@/blocks/EventRegistrationForm/coponents'
 import { MediaCarouselBlock } from '@/blocks/MediaCarousel/Component'
 import { AboutSummerFestBlockComponent } from '@/blocks/AboutSummerFestBlock/Component'
+import FeaturedEventBlockComponent from '@/blocks/EventsDetails/Component'
 
 export function renderNode(node: any, idx: number, eventData?: any): React.ReactNode {
   /* ------------------------------------------------
@@ -130,6 +131,9 @@ export function renderNode(node: any, idx: number, eventData?: any): React.React
         return <AboutSummerFestBlockComponent key={idx} {...node.fields} />
       }
 
+      if (blockType === 'eventDetailsBlock') {
+        return <FeaturedEventBlockComponent key={idx} {...node.fields} />
+      }
 
       return null
     }

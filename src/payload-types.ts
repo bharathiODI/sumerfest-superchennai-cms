@@ -804,8 +804,106 @@ export interface SummerEvent {
     performers?: (number | Performer)[] | null;
     partners?: (number | Partner)[] | null;
     featuredImage?: (number | null) | Media;
+    ageLimit?: string | null;
+    /**
+     * Select one or more languages spoken or used in this event
+     */
+    language?:
+      | (
+          | 'tamil'
+          | 'telugu'
+          | 'malayalam'
+          | 'kannada'
+          | 'hindi'
+          | 'bengali'
+          | 'marathi'
+          | 'gujarati'
+          | 'punjabi'
+          | 'odia'
+          | 'urdu'
+          | 'sanskrit'
+          | 'english'
+          | 'spanish'
+          | 'french'
+          | 'german'
+          | 'italian'
+          | 'portuguese'
+          | 'russian'
+          | 'chinese'
+          | 'japanese'
+          | 'korean'
+          | 'arabic'
+          | 'turkish'
+          | 'persian'
+          | 'hebrew'
+          | 'thai'
+          | 'vietnamese'
+          | 'indonesian'
+          | 'filipino'
+          | 'malay'
+          | 'swahili'
+          | 'dutch'
+          | 'greek'
+          | 'polish'
+          | 'swedish'
+          | 'norwegian'
+          | 'finnish'
+          | 'danish'
+          | 'czech'
+          | 'hungarian'
+          | 'romanian'
+          | 'ukrainian'
+          | 'bulgarian'
+          | 'serbian'
+          | 'croatian'
+          | 'slovak'
+          | 'slovenian'
+          | 'latvian'
+          | 'lithuanian'
+          | 'estonian'
+          | 'icelandic'
+          | 'irish'
+          | 'welsh'
+          | 'scottish_gaelic'
+          | 'albanian'
+          | 'bosnian'
+          | 'macedonian'
+          | 'armenian'
+          | 'georgian'
+          | 'kazakh'
+          | 'uzbek'
+          | 'turkmen'
+          | 'tajik'
+          | 'nepali'
+          | 'sinhala'
+          | 'burmese'
+          | 'khmer'
+          | 'lao'
+          | 'mongolian'
+          | 'pashto'
+          | 'somali'
+          | 'amharic'
+          | 'yoruba'
+          | 'hausa'
+          | 'zulu'
+          | 'afrikaans'
+          | 'maori'
+          | 'samoan'
+          | 'tongan'
+          | 'fijian'
+        )[]
+      | null;
     ticketType?: ('Free' | 'Ticketed' | 'Registration Required') | null;
+    /**
+     * Check if this event is suitable for families/children.
+     */
+    familyFriendly?: boolean | null;
     featured?: boolean | null;
+    link?: string | null;
+    /**
+     * Enter the CTA button label (Example: "Book Now", "Register", "Buy Tickets")
+     */
+    linkbutton?: string | null;
   };
   formSettings?: {
     regSettings?: {
@@ -1952,8 +2050,13 @@ export interface SummerEventsSelect<T extends boolean = true> {
         performers?: T;
         partners?: T;
         featuredImage?: T;
+        ageLimit?: T;
+        language?: T;
         ticketType?: T;
+        familyFriendly?: T;
         featured?: T;
+        link?: T;
+        linkbutton?: T;
       };
   formSettings?:
     | T
