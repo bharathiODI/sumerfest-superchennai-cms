@@ -22,6 +22,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'demo.superchennai.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'summerfest.superchennai.com',
+      },
       // Instagram video thumbnail and video CDN domains
       {
         protocol: 'https',
