@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
@@ -111,9 +112,9 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
           >
             {/* LOGO */}
             <div className="flex justify-start">
-              <Link href="/" aria-label="Home">
+              <a href="/" aria-label="Home">
                 {data?.logo && typeof data.logo === 'object' && 'filename' in data.logo && (
-                  <Image
+                  <img
                     src={`/media/${data.logo.filename}`}
                     alt={data.logo.alt || 'Site Logo'}
                     width={150}
@@ -121,7 +122,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
                     className="h-auto w-[150px] object-contain"
                   />
                 )}
-              </Link>
+              </a>
             </div>
 
             {/* DESKTOP MENU CENTER */}
@@ -141,11 +142,11 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
 
             {/* RIGHT SIDE */}
             <div className="flex justify-end">
-              <Link href="/" aria-label="Home">
+              <a href="/" aria-label="Home">
                 {data?.secondarylogo &&
                   typeof data.secondarylogo === 'object' &&
                   'filename' in data.secondarylogo && (
-                    <Image
+                    <img
                       src={`/media/${data.secondarylogo.filename}`}
                       alt={data.secondarylogo.alt || 'Secondary Logo'}
                       width={150}
@@ -153,7 +154,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
                       className="h-auto w-[150px] object-contain"
                     />
                   )}
-              </Link>
+              </a>
             </div>
           </div>
 
@@ -249,8 +250,6 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
             <img src={iconEvents.src} alt="Events Icon" />
           </div> */}
 
-        
-
           <div className="flex h-10 w-10  items-center justify-center">
             <Link href="/">
               {data?.logo && typeof data.logo === 'object' && 'url' in data.logo && (
@@ -262,7 +261,6 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
               )}
             </Link>
           </div>
-
 
           <div className="flex h-10 w-10 items-center justify-center ">
             <Link href="/">
@@ -277,7 +275,6 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
                 )}
             </Link>
           </div>
-
         </div>
       </header>
     </div>
