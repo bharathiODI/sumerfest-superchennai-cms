@@ -51,7 +51,7 @@ export default async function ArrataiPage({ params: paramsPromise }: Args) {
     slug,
   })
 
-  console.log('summerFestEvents', arattai)
+  // console.log('summerFestEvents', arattai)
 
   if (!arattai) {
     return <PayloadRedirects url={url} />

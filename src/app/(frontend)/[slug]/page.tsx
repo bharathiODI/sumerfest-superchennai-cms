@@ -54,7 +54,7 @@ export default async function Page({ params: paramsPromise }: Args) {
 
   const { hero, content } = page
 
-console.log("ENABLE HERO:", hero?.enableHero)
+// console.log("ENABLE HERO:", hero?.enableHero)
  const showHero = hero?.enableHero === true
 
 

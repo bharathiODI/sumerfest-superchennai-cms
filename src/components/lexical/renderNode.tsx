@@ -18,7 +18,7 @@ export function renderNode(node: any, idx: number, eventData?: any): React.React
   /* ------------------------------------------------
    DEBUG
   ------------------------------------------------ */
-  console.log('LEXICAL NODE =>', node)
+  // console.log('LEXICAL NODE =>', node)
 
   switch (node.type) {
     /* ------------------------------------------------
@@ -77,7 +77,7 @@ export function renderNode(node: any, idx: number, eventData?: any): React.React
     case 'block': {
       const blockType = node.fields?.blockType
 
-      console.log('BLOCK TYPE =>', blockType)
+      // console.log('BLOCK TYPE =>', blockType)
 
       /* ---------------- CODE BLOCK ---------------- */
       if (blockType === 'code' || blockType === 'codeBlock') {
