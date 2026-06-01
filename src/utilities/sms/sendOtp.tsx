@@ -23,13 +23,13 @@ export const sendOtp = async ({ mobile, otp }: SendOtpProps) => {
       tempid: process.env.SMS_TEMPLATE_ID,
     }
 
-    console.log('📤 SMS PARAMS:', params)
+    // console.log('📤 SMS PARAMS:', params)
 
     const response = await axios.get(url, {
       params,
     })
 
-    console.log('✅ SMS RESPONSE:', response.data)
+    // console.log('✅ SMS RESPONSE:', response.data)
 
     return response.data
   } catch (error: any) {
