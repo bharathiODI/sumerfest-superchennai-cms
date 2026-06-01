@@ -100,7 +100,7 @@ const blockComponents: Record<string, React.FC<any>> = {
   eventRegistrationFormBlock: EventRegistrationBlockComponent,
   mediaCarousel: MediaCarouselBlock,
   aboutSummerFestBlock: AboutSummerFestBlockComponent,
-  EventDetailsBlock:FeaturedEventBlockComponent
+  eventDetailsBlock: FeaturedEventBlockComponent,
 }
 
 /**

@@ -47,7 +47,8 @@ export const AboutSummerFestBlockComponent: React.FC<Props> = ({
             <span className="text-[#004B87] uppercase tracking-wider font-bold text-sm sm:text-base">
               {aboutLabel}
             </span>
-            <h1 className="sr-only"> {titleBlue} {titleRed} {titleBlue}  </h1>
+
+            <h1 className="sr-only">{[ titleRed,titleBlue, year].filter(Boolean).join(' ')}</h1>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-none text-[#D9231D]">
               {titleRed}
             </h2>

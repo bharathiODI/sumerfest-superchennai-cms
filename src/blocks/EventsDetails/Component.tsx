@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 'use client'
 
 import axios from 'axios'
@@ -16,14 +15,14 @@ import {
   ShieldCheck,
   Link2,
 } from 'lucide-react'
+
 type Props = {
-  block: {
-    title?: string
-    description?: string
-  }
+  title?: string
+  description?: string
 }
 
-export default function FeaturedEventBlockComponent({ block }: Props) {
+// export default function FeaturedEventBlockComponent({ block }: Props) {
+export default function FeaturedEventBlockComponent({ title, description }: Props) {
   const params = useParams()
 
   const slug = params?.slug as string
@@ -67,7 +66,7 @@ export default function FeaturedEventBlockComponent({ block }: Props) {
 
   if (!event) return null
 
-  const title = event?.eventFields?.title || ''
+  // const title = event?.eventFields?.title || ''
 
   const imageUrl = event?.heroImage?.url || event?.eventFields?.featuredImage?.url || ''
 
@@ -118,7 +117,7 @@ export default function FeaturedEventBlockComponent({ block }: Props) {
 
   const externalUrl = eventLink?.startsWith('http') ? eventLink : `https://${eventLink}`
 
-  const eventLinkButton = event?.eventFields?.linkbutton || 'Book Now'
+  const eventLinkButton = event?.eventFields?.linkbutton || ''
 
   const venue = event?.eventFields?.venue?.title || ''
 
@@ -132,17 +131,11 @@ export default function FeaturedEventBlockComponent({ block }: Props) {
     <>
       {/* <section className=""> */}
       <div className="container max-w-7xl mx-auto px-0 !pt-[5]">
-        {(block?.title || block?.description) && (
-          <div className="mb-12 text-center">
-            {block?.title && (
-              <h2 className="mb-3 text-4xl font-bold text-gray-900">{block.title}</h2>
-            )}
+        {/* <div className="mb-12 text-center">
+          <h2 className="mb-3 text-4xl font-bold text-gray-900">{title}</h2>
 
-            {block?.description && (
-              <p className="mx-auto max-w-3xl text-gray-600">{block.description}</p>
-            )}
-          </div>
-        )}
+          <p className="mx-auto max-w-3xl text-gray-600">{description}</p>
+        </div> */}
 
         <div className="flex flex-col gap-8 lg:flex-row">
           {/* LEFT */}
@@ -316,54 +309,56 @@ export default function FeaturedEventBlockComponent({ block }: Props) {
                   </div>
                 </div>
               )}
+              {ageLimit && (
+                <div className="flex gap-4 rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[rgb(226,140,39)]/10">
+                    <ShieldCheck size={26} className="text-[rgb(226,140,39)]" />
+                  </div>
+
+                  <div>
+                    <h6 className="text-sm font-bold text-gray-900">Age Limit</h6>
+
+                    <p className="mt-1 text-sm text-gray-600">{ageLimit}</p>
+                  </div>
+                </div>
+              )}
+
+              {languages.length > 0 && (
+                <div className="flex gap-4 rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[rgb(0,75,135)]/10">
+                    <Languages size={26} className="text-[rgb(0,75,135)]" />
+                  </div>
+
+                  <div>
+                    <h6 className="text-sm font-bold text-gray-900">Languages</h6>
+
+                    <p className="mt-1 text-sm text-gray-600">{languages.join(', ')}</p>
+                  </div>
+                </div>
+              )}
+
+              {familyFriendly && (
+                <div className="flex gap-4 rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[rgb(217,35,29)]/10">
+                    <Users size={26} className="text-[rgb(217,35,29)]" />
+                  </div>
+
+                  <div>
+                    <h6 className="text-sm font-bold text-gray-900">Family Friendly</h6>
+
+                    <p className="mt-1 text-sm text-gray-600">Suitable for families</p>
+                  </div>
+                </div>
+              )}
             </div>
-            {ageLimit && (
-              <div className="flex gap-4 rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[rgb(226,140,39)]/10">
-                  <ShieldCheck size={26} className="text-[rgb(226,140,39)]" />
-                </div>
 
-                <div>
-                  <h6 className="text-sm font-bold text-gray-900">Age Limit</h6>
-
-                  <p className="mt-1 text-sm text-gray-600">{ageLimit}</p>
-                </div>
-              </div>
+            {externalUrl?.trim() && eventLinkButton?.trim() && (
+              <a href={externalUrl} className="maineveentssbuttonss">
+                <button className="w-full rounded-lg bg-[rgb(217,35,29)] px-4 py-3 font-semibold text-white transition-all duration-300 hover:bg-[rgb(0,75,135)] eveentssbuttonss">
+                  {eventLinkButton}
+                </button>
+              </a>
             )}
-
-            {languages.length > 0 && (
-              <div className="flex gap-4 rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[rgb(0,75,135)]/10">
-                  <Languages size={26} className="text-[rgb(0,75,135)]" />
-                </div>
-
-                <div>
-                  <h6 className="text-sm font-bold text-gray-900">Languages</h6>
-
-                  <p className="mt-1 text-sm text-gray-600">{languages.join(', ')}</p>
-                </div>
-              </div>
-            )}
-
-            {familyFriendly && (
-              <div className="flex gap-4 rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[rgb(217,35,29)]/10">
-                  <Users size={26} className="text-[rgb(217,35,29)]" />
-                </div>
-
-                <div>
-                  <h6 className="text-sm font-bold text-gray-900">Family Friendly</h6>
-
-                  <p className="mt-1 text-sm text-gray-600">Suitable for families</p>
-                </div>
-              </div>
-            )}
-
-            <a href={externalUrl} className="maineveentssbuttonss">
-              <button className="w-full rounded-lg bg-[rgb(217,35,29)] px-4 py-3 font-semibold text-white transition-all duration-300 hover:bg-[rgb(0,75,135)] eveentssbuttonss">
-                {eventLinkButton}
-              </button>
-            </a>
           </div>
         </div>
       </div>
