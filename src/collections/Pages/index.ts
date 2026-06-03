@@ -35,6 +35,7 @@ import {
 } from '@payloadcms/richtext-lexical'
 import { MediaCarousel } from '@/blocks/MediaCarousel/config'
 import { AboutSummerFestBlock } from '@/blocks/AboutSummerFestBlock/config'
+import { FestivalScheduleBlock } from '@/blocks/FestivalSchedule/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -105,7 +106,8 @@ export const Pages: CollectionConfig<'pages'> = {
                         EventRegistrationBlock,
                         PartnerCarouselBlock,
                         MediaCarousel,
-                        AboutSummerFestBlock
+                        AboutSummerFestBlock,
+                        FestivalScheduleBlock
                       ],
                     }),
                     FixedToolbarFeature(),

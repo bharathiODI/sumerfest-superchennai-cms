@@ -289,6 +289,8 @@ export default function EventListingComponent({
                 })
               : ''
 
+            const price = eventData?.ticketPrice
+
             return (
               <motion.div
                 className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-md transition-shadow"
@@ -312,12 +314,34 @@ export default function EventListingComponent({
                 > */}
                 {/* IMAGE */}
                 <div className="relative h-48 w-full bg-slate-200 overflow-hidden">
-                  <Image
+                  {/* <Image
                     src={image}
                     alt={title}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
+                  /> */}
+                  <div className="relative h-48 w-full bg-slate-200 overflow-hidden">
+                    <Image
+                      src={image}
+                      alt={title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+
+                    {/* Category */}
+                    <span
+                      className={`absolute top-4 left-4 px-3 py-1 text-[13px] font-bold text-white rounded-full tracking-widest ${categoryStyle.bg}`}
+                    >
+                      {category}
+                    </span>
+
+                    {/* Price */}
+                    {price && (
+                      <span className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm text-[#007A87] px-3 py-1 rounded-full text-sm font-bold shadow-md">
+                        ₹ {price}
+                      </span>
+                    )}
+                  </div>
 
                   {/* CATEGORY */}
                   <span
@@ -341,6 +365,14 @@ export default function EventListingComponent({
                       <p className="text-xs text-[#000] line-clamp-2 mb-3 leading-relaxed font-medium  festparaa !text-[16px]">
                         {shortDescription}
                       </p>
+                    )}
+
+                    {price && (
+                      <div className="mb-3">
+                        <span className="inline-flex items-center rounded-full bg-green-100 px-3 py-1 text-sm font-semibold text-green-700">
+                          ₹ {price}
+                        </span>
+                      </div>
                     )}
 
                     {/* META */}
