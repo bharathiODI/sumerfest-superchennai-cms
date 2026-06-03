@@ -13,6 +13,7 @@ import EventRegistrationBlockComponent from '@/blocks/EventRegistrationForm/copo
 import { MediaCarouselBlock } from '@/blocks/MediaCarousel/Component'
 import { AboutSummerFestBlockComponent } from '@/blocks/AboutSummerFestBlock/Component'
 import FeaturedEventBlockComponent from '@/blocks/EventsDetails/Component'
+import { FestivalScheduleBlockComponent } from '@/blocks/FestivalSchedule/Component'
 
 export function renderNode(node: any, idx: number, eventData?: any): React.ReactNode {
   /* ------------------------------------------------
@@ -133,6 +134,10 @@ export function renderNode(node: any, idx: number, eventData?: any): React.React
 
       if (blockType === 'eventDetailsBlock') {
         return <FeaturedEventBlockComponent key={idx} {...node.fields} />
+      }
+
+      if (blockType === 'festivalScheduleBlock') {
+        return <FestivalScheduleBlockComponent key={idx} {...node.fields} />
       }
 
       return null
