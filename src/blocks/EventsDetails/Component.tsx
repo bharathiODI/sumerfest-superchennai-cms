@@ -292,7 +292,7 @@ export default function FeaturedEventBlockComponent({ title, description }: Prop
                   <div>
                     <h6 className="text-sm font-bold text-gray-900">Ticket Price</h6>
 
-                    <p className="mt-1 text-sm text-gray-600">{ticketPrice}</p>
+                    <p className="mt-1 text-sm text-gray-600">₹ {ticketPrice}</p>
                   </div>
                 </div>
               )}

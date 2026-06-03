@@ -367,13 +367,13 @@ export default function EventListingComponent({
                       </p>
                     )}
 
-                    {price && (
+                    {/* {price && (
                       <div className="mb-3">
                         <span className="inline-flex items-center rounded-full bg-green-100 px-3 py-1 text-sm font-semibold text-green-700">
                           ₹ {price}
                         </span>
                       </div>
-                    )}
+                    )} */}
 
                     {/* META */}
                     <div className="space-y-3  text-[#000] font-medium tracking-wide festesssss">
