@@ -10,6 +10,7 @@ import { fileURLToPath } from 'url'
 
 import { anyone } from '../access/anyone'
 import { authenticated } from '../access/authenticated'
+// import { compressVideo } from '@/blocks/videoGallery/hook'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -38,12 +39,24 @@ export const Media: CollectionConfig = {
       }),
     },
   ],
+  //  hooks: {
+  //   afterChange: [
+  //     async ({ doc, operation }) => {
+  //       if (operation !== 'create') return doc
+  //       if (!doc.mimeType?.startsWith('video/')) return doc
+  //       const result = await compressVideo({ doc })
+
+  //       return result
+  //     },
+  //   ],
+  // },
   upload: {
     // Upload to the public/media directory in Next.js making them publicly accessible even outside of Payload
     staticDir: path.resolve(dirname, '../../public/media'),
     adminThumbnail: 'thumbnail',
     focalPoint: true,
-    mimeTypes: ['image/*', 'image/svg+xml'], 
+    mimeTypes: ['image/*', 'image/svg+xml', 'video/mp4', 'video/webm', 'video/quicktime'],
+    // mimeTypes: ['image/*', 'image/svg+xml'],
     imageSizes: [
       {
         name: 'thumbnail',

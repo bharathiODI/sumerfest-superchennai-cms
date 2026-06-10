@@ -69,20 +69,16 @@ export const SummerCard: React.FC<{
 
   return (
     <Link href={href} className="group block h-full">
-      <article className="relative h-full overflow-hidden rounded-[32px] border border-white/10 bg-white shadow-[0_15px_60px_rgba(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_25px_100px_rgba(0,0,0,0.16)]">
-        {/* Premium Glow */}
+      <article className="relative h-full overflow-hidden  border border-white/10 bg-white shadow-[0_15px_60px_rgba(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_25px_100px_rgba(0,0,0,0.16)]">
         <div className="absolute inset-0 bg-gradient-to-br from-pink-500/[0.05] via-transparent to-violet-500/[0.08] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
-        {/* IMAGE SECTION */}
         <div className="relative overflow-hidden">
-          {/* Overlay */}
           <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-
-          <div className="h-[280px] md:h-[340px] overflow-hidden">
+          <div className="">
             {imageToUse ? (
               <Media
                 resource={imageToUse}
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
             ) : (
               <div className="flex h-full items-center justify-center bg-slate-100">
@@ -91,9 +87,7 @@ export const SummerCard: React.FC<{
             )}
           </div>
 
-          {/* Floating Bottom Content */}
           <div className="absolute bottom-0 left-0 z-20 w-full p-6">
-            {/* Meta Pills */}
             <div className="mb-4 flex flex-wrap items-center gap-2">
               {formattedDate && (
                 <div className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-xl">
@@ -110,34 +104,25 @@ export const SummerCard: React.FC<{
               )}
             </div>
 
-            {/* Title */}
-            <h3 className="line-clamp-2 text-2xl font-bold leading-tight text-white transition-all duration-300 group-hover:translate-x-1">
+            <h3 className="line-clamp-2 text-2xl font-bold leading-tight text-white capitalize transition-all duration-300 group-hover:translate-x-1">
               {eventFields?.title || title}
             </h3>
           </div>
         </div>
 
-        {/* CONTENT */}
         <div className="relative p-6">
-          {/* Description */}
           {eventFields?.shortDescription && (
-            <p className="line-clamp-3 text-sm leading-relaxed text-slate-600">
+            <p className="text-xs text-[#000] line-clamp-2 mb-3 leading-relaxed font-medium  festparaa !text-[16px]">
               {eventFields.shortDescription}
             </p>
           )}
 
-          {/* Divider */}
           <div className="my-6 h-px w-full bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
-
-          {/* Footer */}
           <div className="flex items-center justify-between">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-400">
-                Summer Fest
-              </p>
-
-              <p className="mt-1 text-sm font-medium text-slate-900">Explore Event</p>
-            </div>
+            
+            <p className="flex items-center gap-1.5 text-lg font-bold tracking-widest uppercase cursor-pointer hover:opacity-80 transition-opacity text-[#007A87] festviewwdetails">
+              View Details
+            </p>
 
             {/* Arrow Button */}
             <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-red-500 via-orange-500 to-yellow-400 text-white shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-[-8deg]">
@@ -147,7 +132,7 @@ export const SummerCard: React.FC<{
         </div>
 
         {/* Hover Border */}
-        <div className="pointer-events-none absolute inset-0 rounded-[32px] border border-transparent transition-all duration-500 group-hover:border-pink-500/20" />
+        <div className="pointer-events-none absolute inset-0  border border-transparent transition-all duration-500 group-hover:border-pink-500/20" />
       </article>
     </Link>
   )

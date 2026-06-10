@@ -529,7 +529,7 @@ const SummerFestDetails: React.FC<SummerFestDetailsProps> = ({ data }) => {
 
       {/* CONTENT */}
 
-      <section className="bg-white py-20 ">
+      <section className="bg-white">
         <div className="container max-w-7xl mx-auto px-4">
           <div className="prose prose-lg max-w-none">
             <LexicalRenderer content={data?.content} eventData={data} />

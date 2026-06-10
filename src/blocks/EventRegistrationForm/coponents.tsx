@@ -441,8 +441,8 @@ const EventRegistrationBlockComponent: React.FC<Props> = ({ block, eventData }) 
                 </div>
                 <form onSubmit={submitForm} className="space-y-8">
                   {/* =========================================================
-           FIELDS
-        ========================================================= */}
+                     FIELDS
+                   ========================================================= */}
 
                   <div className="grid gap-8 md:grid-cols-2">
                     {customFields.map((field, index) => (

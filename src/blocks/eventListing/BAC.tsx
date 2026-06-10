@@ -374,7 +374,7 @@ export default function EventListingComponent({
                     <div className="mt-2 pt-3">
                       <Link
                         href={`/events/${slug}`}
-                        className="flex items-center gap-1.5 text-[11px] font-bold tracking-widest uppercase cursor-pointer hover:opacity-80 transition-opacity text-[#007A87] festviewwdetails"
+                        className="flex items-center gap-1.5 text-[11px] font-bold tracking-widest uppercase text-[#007A87] hover:opacity-80 transition-opacity"
                       >
                         View Details
                         <ArrowRight className="h-4 w-4" />
@@ -386,8 +386,6 @@ export default function EventListingComponent({
             },
           )}
         </div>
-
-        {/*############# VIEW MORE BUTTON ############ */}
 
         {upcomingEvents.length > 6 && (
           <div className="mt-8 flex justify-center">
@@ -432,6 +430,7 @@ export default function EventListingComponent({
 
         {(showAllPast ? pastEvents : pastEvents.slice(0, 6)).length > 0 && (
           <>
+            {/* HEADER */}
             <div className="mb-10 mt-20 text-center">
               <h3 className="text-sm font-extrabold tracking-widest text-[#061E43] flex items-center justify-center uppercase festmainheadingsss">
                 <WaveDecoration />
@@ -440,6 +439,7 @@ export default function EventListingComponent({
               </h3>
             </div>
 
+            {/* GRID */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-[30px]">
               {(showAllPast ? pastEvents : pastEvents.slice(0, 6)).map(
                 (event: any, index: number) => {
@@ -562,9 +562,7 @@ export default function EventListingComponent({
             </div>
           </>
         )}
-
-        {/*############# VIEW MORE BUTTON ############ */}
-
+ 
         {pastEvents.length > 6 && (
           <div className="mt-8 flex justify-center">
             <button
@@ -605,6 +603,22 @@ export default function EventListingComponent({
             </button>
           </div>
         )}
+
+        {/* ======================================================
+            VIEW ALL
+        ====================================================== */}
+
+        {/* {showViewAll && (
+          <div className="mt-5 flex justify-center">
+            <Link
+              href={viewAllLink}
+              className="rounded-full bg-[#005B70] px-8 py-4 text-sm font-bold uppercase tracking-widest text-white transition-all hover:scale-105"
+            >
+              View All Events
+            </Link>
+          </div>
+        )} */}
+
       </div>
     </section>
   )

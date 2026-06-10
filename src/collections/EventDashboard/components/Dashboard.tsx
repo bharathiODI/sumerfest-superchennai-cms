@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useMemo, useState } from 'react'
+import * as XLSX from 'xlsx' 
 
 import './styles.scss'
 
@@ -204,6 +205,65 @@ export default function Dashboard() {
     return String(value || '-')
   }
 
+
+   /* ======================================================
+     EXCEL DOWNLOAD FUNCTION
+  ====================================================== */
+  const downloadExcel = () => {
+    // Ippo active ah irukura Event registrations-ai mattum edukirom
+    const currentEventData = groupedEvents[selectedEvent] || []
+    
+    if (currentEventData.length === 0) {
+      alert('No data available to export!')
+      return
+    }
+
+    // Excel-ku yetha mathiri simple row structural format-ku data-va mathuroam
+    const excelRows = currentEventData.map((item: any) => {
+      // Custom values (Form fields) iruntha athai text ah mathuroam
+      const customValues = item.values 
+        ? Object.entries(item.values).map(([k, v]) => `${k}: ${String(v)}`).join(', ')
+        : ''
+
+      // Attachment links-ai sethu row-il dynamic ah kaata
+      const files = item.attachments
+        ? item.attachments.map((f: any, i: number) => f?.file?.url || `File ${i+1}`).join(' | ')
+        : ''
+
+      return {
+        'Registration ID': item.id || '-',
+        'Name': item.name || item.values?.name || '-',
+        'Email': item.email || item.values?.email || '-',
+        'Phone': item.phone || item.values?.phone || '-',
+        'Week': item?.week?.title || 'No Week',
+        'Event Title': selectedEvent,
+        'Status': item.status || 'pending',
+        'Additional Form Fields': customValues,
+        'Uploaded Files Links': files
+      }
+    })
+
+    // Workbook matrum Worksheet create seiyuthal
+    const worksheet = XLSX.utils.json_to_sheet(excelRows)
+    const workbook = XLSX.utils.book_new()
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Registrations')
+
+    // Column widths neat ah adjust panna
+    const max_width = excelRows.reduce((w, r) => Math.max(w, l(r.Name), l(r.Email)), 10)
+    worksheet['!cols'] = [{ wch: 15 }, { wch: 25 }, { wch: 30 }, { wch: 15 }, { wch: 15 }, { wch: 25 }, { wch: 12 }, { wch: 40 }]
+
+    function l(x: any) { return x ? x.toString().length : 10 }
+
+    // Excel file name setting (e.g., Summer_Week_1_Event_Name.xlsx)
+    const fileName = `${activeTab}_${selectedWeek}_${selectedEvent}`.replace(/[^a-z0-9]/gi, '_').toLowerCase()
+    
+    // File download trigger
+    XLSX.writeFile(workbook, `${fileName}_registrations.xlsx`)
+  }
+
+    const currentItems = groupedEvents[selectedEvent] || []
+
+
   return (
     <div className="eventDashboard">
       {/* HERO */}
@@ -229,6 +289,24 @@ export default function Dashboard() {
 
             <p>Total Events</p>
           </div>
+                 {/* EXCEL EXPORT BUTTON */}
+          <button 
+            className="downloadExcelBtn" 
+            onClick={downloadExcel}
+            disabled={currentItems.length === 0}
+            style={{
+              padding: '10px 20px',
+              backgroundColor: '#217346', // Excel green color
+              color: 'white',
+              border: 'none',
+              borderRadius: '6px',
+              cursor: currentItems.length === 0 ? 'not-allowed' : 'pointer',
+              fontWeight: 'bold',
+              marginTop: '10px'
+            }}
+          >
+            📊 Export to Excel
+          </button>
         </div>
       </div>
 

@@ -14,6 +14,8 @@ import { MediaCarouselBlock } from '@/blocks/MediaCarousel/Component'
 import { AboutSummerFestBlockComponent } from '@/blocks/AboutSummerFestBlock/Component'
 import FeaturedEventBlockComponent from '@/blocks/EventsDetails/Component'
 import { FestivalScheduleBlockComponent } from '@/blocks/FestivalSchedule/Component'
+import { VideoGalleryBlockComponent } from '@/blocks/videoGallery/Component'
+import { GalleryVisualDiaryBlockComponent } from '@/blocks/galleryVisualDiary/Component'
 
 export function renderNode(node: any, idx: number, eventData?: any): React.ReactNode {
   /* ------------------------------------------------
@@ -138,6 +140,13 @@ export function renderNode(node: any, idx: number, eventData?: any): React.React
 
       if (blockType === 'festivalScheduleBlock') {
         return <FestivalScheduleBlockComponent key={idx} {...node.fields} />
+      }
+
+      if (blockType === 'videoGalleryBlock') {
+        return <VideoGalleryBlockComponent key={idx} {...node.fields} />
+      }
+      if (blockType === 'galleryVisualDiary') {
+        return <GalleryVisualDiaryBlockComponent key={idx} {...node.fields} />
       }
 
       return null

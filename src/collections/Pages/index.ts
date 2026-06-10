@@ -36,6 +36,8 @@ import {
 import { MediaCarousel } from '@/blocks/MediaCarousel/config'
 import { AboutSummerFestBlock } from '@/blocks/AboutSummerFestBlock/config'
 import { FestivalScheduleBlock } from '@/blocks/FestivalSchedule/config'
+import { VideoGalleryBlock } from '@/blocks/videoGallery/config'
+import { GalleryVisualDiaryBlock } from '@/blocks/galleryVisualDiary/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -107,7 +109,9 @@ export const Pages: CollectionConfig<'pages'> = {
                         PartnerCarouselBlock,
                         MediaCarousel,
                         AboutSummerFestBlock,
-                        FestivalScheduleBlock
+                        FestivalScheduleBlock,
+                        VideoGalleryBlock,
+                        GalleryVisualDiaryBlock
                       ],
                     }),
                     FixedToolbarFeature(),
