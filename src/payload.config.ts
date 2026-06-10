@@ -121,6 +121,7 @@ export default buildConfig({
     'http://localhost:5174',
     getServerSideURL(),
   ].filter(Boolean),
+  
 
   globals: [Header, Footer],
   blocks: [],

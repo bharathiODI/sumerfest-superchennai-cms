@@ -32,6 +32,9 @@ import {
 } from '@payloadcms/richtext-lexical'
 import { EventRegistrationFormBlock } from '@/blocks/EventRegistrationForm/config'
 import { EventDetailsBlock } from '@/blocks/EventsDetails/config'
+import { FestivalScheduleBlock } from '@/blocks/FestivalSchedule/config'
+import { VideoGalleryBlock } from '@/blocks/videoGallery/config'
+import { GalleryVisualDiaryBlock } from '@/blocks/galleryVisualDiary/config'
 
 export const SummerFestEvents: CollectionConfig<'summer-events'> = {
   slug: 'summer-events',
@@ -106,6 +109,9 @@ export const SummerFestEvents: CollectionConfig<'summer-events'> = {
                         AboutEventBlock,
                         EventRegistrationFormBlock,
                         EventDetailsBlock,
+                        FestivalScheduleBlock,
+                        VideoGalleryBlock,
+                        GalleryVisualDiaryBlock,
                       ],
                     }),
                     FixedToolbarFeature(),
