@@ -249,7 +249,7 @@ export default function Dashboard() {
     XLSX.utils.book_append_sheet(workbook, worksheet, 'Registrations')
 
     // Column widths neat ah adjust panna
-    const max_width = excelRows.reduce((w, r) => Math.max(w, l(r.Name), l(r.Email)), 10)
+    const max_width = excelRows.reduce((w: number, r: { Name: any; Email: any }) => Math.max(w, l(r.Name), l(r.Email)), 10)
     worksheet['!cols'] = [{ wch: 15 }, { wch: 25 }, { wch: 30 }, { wch: 15 }, { wch: 15 }, { wch: 25 }, { wch: 12 }, { wch: 40 }]
 
     function l(x: any) { return x ? x.toString().length : 10 }
