@@ -48,9 +48,30 @@ export const FestivalScheduleBlock: Block = {
           type: 'text',
         },
         {
+          name: 'iconText',
+          type: 'text',
+          admin: {
+            placeholder: '🎵 or A or 01',
+          },
+        },
+
+        {
+          name: 'color',
+          type: 'text',
+          admin: {
+            placeholder: '#005B70',
+          },
+        },
+
+        {
+          name: 'iconImage',
+          type: 'upload',
+          relationTo: 'media',
+        },
+        {
           name: 'buttonUrl',
           type: 'text',
-          
+
           admin: {
             description: 'External URL for Participate Now button',
           },
@@ -63,6 +84,27 @@ export const FestivalScheduleBlock: Block = {
               name: 'text',
               type: 'text',
               required: true,
+            },
+            {
+              name: 'iconText',
+              type: 'text',
+              admin: {
+                placeholder: '🎵 or A or 01',
+              },
+            },
+
+            {
+              name: 'color',
+              type: 'text',
+              admin: {
+                placeholder: '#005B70',
+              },
+            },
+
+            {
+              name: 'iconImage',
+              type: 'upload',
+              relationTo: 'media',
             },
           ],
         },

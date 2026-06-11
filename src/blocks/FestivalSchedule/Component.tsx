@@ -84,10 +84,50 @@ export const FestivalScheduleBlockComponent: React.FC<Props> = ({
       },
     ],
   }
+  const RenderIcon = ({
+  contest,
+  type = 'default',
+}: {
+  contest: any
+  type?: 'default' | 'upload'
+}) => {
+  const bgColor = contest?.color || (contest?.badgeType === 'quiz' ? '#F59E0B' : '#5B21B6')
 
   return (
     <div
-      className="container max-w-6xl mx-auto px-4 mt-16 mb-20"
+      className="p-2.5 rounded-full shrink-0 flex items-center justify-center"
+      style={{
+        backgroundColor: bgColor,
+        width: 44,
+        height: 44,
+      }}
+    >
+      {contest?.iconImage?.url ? (
+        <img
+          src={contest.iconImage.url}
+          alt="icon"
+          className="w-5 h-5 object-contain"
+        />
+      ) : contest?.iconText ? (
+        <span className="text-white font-bold text-sm leading-none">
+          {contest.iconText}
+        </span>
+      ) : contest?.badgeType === 'quiz' ? (
+        type === 'upload' ? (
+          <Upload className="w-5 h-5 text-white" />
+        ) : (
+          <HelpCircle className="w-5 h-5 text-white" />
+        )
+      ) : (
+        <Camera className="w-5 h-5 text-white" />
+      )}
+    </div>
+  )
+}
+
+  return (
+    <div
+      className="container max-w-7xl mx-auto px-4 mt-16 mb-20"
       style={{ fontFamily: "'Poppins', sans-serif" }}
     >
       <div className="text-center mb-6">
@@ -123,7 +163,7 @@ export const FestivalScheduleBlockComponent: React.FC<Props> = ({
                 <div className="p-6 flex-1 flex flex-col justify-between bg-white newaddpaididid">
                   <div className="border-b border-gray-100">
                     <div className="flex gap-4 items-start ">
-                      <div
+                      {/* <div
                         className={`p-2.5 rounded-full shrink-0 ${
                           isQuiz ? 'bg-amber-500' : 'bg-purple-800'
                         }`}
@@ -133,7 +173,8 @@ export const FestivalScheduleBlockComponent: React.FC<Props> = ({
                         ) : (
                           <Camera className="w-5 h-5 text-white" />
                         )}
-                      </div>
+                      </div> */}
+                      <RenderIcon contest={contest} />
 
                       <p className="text-xs text-[#000] mb-3 leading-relaxed font-medium festparaa !text-[14px] md:!text-[16px]">
                         {contest.description}
@@ -141,7 +182,7 @@ export const FestivalScheduleBlockComponent: React.FC<Props> = ({
                     </div>
 
                     <div className="flex gap-4 items-start ">
-                      <div
+                      {/* <div
                         className={`p-2.5 rounded-full shrink-0 ${
                           isQuiz ? 'bg-amber-500' : 'bg-purple-800'
                         }`}
@@ -151,11 +192,37 @@ export const FestivalScheduleBlockComponent: React.FC<Props> = ({
                         ) : (
                           <Camera className="w-5 h-5 text-white" />
                         )}
-                      </div>
+                      </div> */}
+                      {/* <RenderIcon contest={contest} type="upload" /> */}
 
                       <div className="flex flex-wrap items-center justify-start gap-y-2 gap-x-4 border-b border-gray-100 pb-6 text-xs font-semibold text-gray-600 festflexxxzxxs">
-                        {contest.features?.map((feature: any, idx: number) => (
+                        {/* {contest.features?.map((feature: any, idx: number) => (
                           <div key={idx} className="flex items-center gap-1.5">
+                            <span className="text-xs text-[#000] leading-relaxed font-medium festparaa !text-[14px] md:!text-[16px]">
+                              {feature.text}
+                            </span>
+                          </div>
+                        ))} */}
+                        {contest.features?.map((feature: any, idx: number) => (
+                          <div key={idx} className="flex items-center gap-3">
+                           
+                            {feature.iconImage?.url ? (
+                              <img
+                                src={feature.iconImage.url}
+                                alt=""
+                                className="w-5 h-5 object-contain"
+                              />
+                            ) : feature.iconText ? (
+                              <div
+                                className="w-11 h-11 rounded-full flex items-center justify-center font-bold text-white"
+                                style={{
+                                  backgroundColor: feature.color || '#009494',
+                                }}
+                              >
+                                {feature.iconText}
+                              </div>
+                            ) : null}
+
                             <span className="text-xs text-[#000] leading-relaxed font-medium festparaa !text-[14px] md:!text-[16px]">
                               {feature.text}
                             </span>

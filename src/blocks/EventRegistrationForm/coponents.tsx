@@ -363,7 +363,7 @@ const EventRegistrationBlockComponent: React.FC<Props> = ({ block, eventData }) 
     <>
       <ToastContainer position="top-center" />
 
-      <section className="relative py-20 overflow-hidden bg-white">
+      <section className="relative overflow-hidden bg-white">
         <div className="absolute inset-0 " />
 
         <div className="relative z-10">
@@ -422,7 +422,7 @@ const EventRegistrationBlockComponent: React.FC<Props> = ({ block, eventData }) 
         ${block?.enableGlassEffect ? 'backdrop-blur-xl bg-white/90' : 'bg-white'}
       `}
               >
-                <div className="mb-10">
+                <div className="mb-10 text-center">
                   <div className="inline-flex items-center gap-2 rounded-full bg-orange-100 px-4 py-2">
                     <Sparkles className="h-4 w-4 text-orange-500" />
 
