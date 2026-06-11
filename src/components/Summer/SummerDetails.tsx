@@ -529,9 +529,9 @@ const SummerFestDetails: React.FC<SummerFestDetailsProps> = ({ data }) => {
 
       {/* CONTENT */}
 
-      <section className="bg-white">
-        <div className="container max-w-7xl mx-auto px-4">
-          <div className="prose prose-lg max-w-none">
+      <section className="bg-white">   
+        <div className="">
+          <div className="prose prose-lg max-w-none py-20">
             <LexicalRenderer content={data?.content} eventData={data} />
           </div>
         </div>
@@ -544,7 +544,6 @@ const SummerFestDetails: React.FC<SummerFestDetailsProps> = ({ data }) => {
           <div className="mx-auto max-w-4xl px-4">
             <div className="rounded-[32px] border border-red-200 bg-red-50 p-12 text-center">
               <h2 className="text-4xl font-black text-red-600">Registration Closed</h2>
-
               <p className="mt-4 text-gray-600">Registration currently closed.</p>
             </div>
           </div>
