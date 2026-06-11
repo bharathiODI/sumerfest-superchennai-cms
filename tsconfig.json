@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     /* Strictness */
-     "ignoreDeprecations": "6.0",
+    //  "ignoreDeprecations": "6.0",
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
