@@ -290,8 +290,16 @@ export default function EventListingComponent({
               const endTime = eventData?.endTime
               const slug = event?.slug
 
-              const eventDate = eventData?.eventDates?.[0]?.date
+              // const enableExternalRedirect = eventData?.enableExternalRedirect
+              // const externalUrl = eventData?.externalUrl
+              // const eventLink =
+              //   enableExternalRedirect && externalUrl ? externalUrl : `/events/${slug}`
 
+              const { enableExternalRedirect, externalUrl, openInNewTab } = eventData
+              const eventLink =
+                enableExternalRedirect && externalUrl ? externalUrl : `/events/${slug}`
+
+              const eventDate = eventData?.eventDates?.[0]?.date
               const formattedDate = eventDate
                 ? new Date(eventDate).toLocaleDateString('en-IN', {
                     day: 'numeric',
@@ -310,7 +318,12 @@ export default function EventListingComponent({
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <Link href={`/events/${slug}`}>
+                  <Link
+                    href={eventLink}
+                    target={openInNewTab ? '_blank' : undefined}
+                    rel={openInNewTab ? 'noopener noreferrer' : undefined}
+                    prefetch={false}
+                  >
                     <div className="relative h-48 w-full bg-slate-200 overflow-hidden">
                       <Image
                         src={image}
@@ -373,7 +386,9 @@ export default function EventListingComponent({
 
                     <div className="mt-2 pt-3">
                       <Link
-                        href={`/events/${slug}`}
+                        href={eventLink}
+                        target={openInNewTab ? '_blank' : undefined}
+                        rel={openInNewTab ? 'noopener noreferrer' : undefined}
                         className="flex items-center gap-1.5 text-[11px] font-bold tracking-widest uppercase cursor-pointer hover:opacity-80 transition-opacity text-[#007A87] festviewwdetails"
                       >
                         View Details
@@ -464,6 +479,10 @@ export default function EventListingComponent({
                   const endTime = eventData?.endTime
                   const slug = event?.slug
 
+                  const { enableExternalRedirect, externalUrl, openInNewTab } = eventData
+                  const eventLink =
+                    enableExternalRedirect && externalUrl ? externalUrl : `/events/${slug}`
+
                   const eventDate = eventData?.eventDates?.[0]?.date
 
                   const formattedDate = eventDate
@@ -484,7 +503,12 @@ export default function EventListingComponent({
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                     >
-                      <Link href={`/events/${slug}`}>
+                      <Link
+                        href={eventLink}
+                        target={openInNewTab ? '_blank' : undefined}
+                        rel={openInNewTab ? 'noopener noreferrer' : undefined}
+                        prefetch={false}
+                      >
                         <div className="relative h-48 w-full bg-slate-200 overflow-hidden">
                           <Image
                             src={image}
@@ -547,7 +571,9 @@ export default function EventListingComponent({
 
                         <div className="mt-2 pt-3">
                           <Link
-                            href={`/events/${slug}`}
+                            href={eventLink}
+                            target={openInNewTab ? '_blank' : undefined}
+                            rel={openInNewTab ? 'noopener noreferrer' : undefined}
                             className="flex items-center gap-1.5 text-[11px] font-bold tracking-widest uppercase cursor-pointer hover:opacity-80 transition-opacity text-[#007A87] festviewwdetails"
                           >
                             View Details
