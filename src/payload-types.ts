@@ -905,6 +905,18 @@ export interface SummerEvent {
      * Enter the CTA button label (Example: "Book Now", "Register", "Buy Tickets")
      */
     linkbutton?: string | null;
+    /**
+     * Enable this to redirect users to an external website instead of event details page
+     */
+    enableExternalRedirect?: boolean | null;
+    /**
+     * Enter full external URL
+     */
+    externalUrl?: string | null;
+    /**
+     * Open external link in a new tab
+     */
+    openInNewTab?: boolean | null;
   };
   formSettings?: {
     regSettings?: {
@@ -2059,6 +2071,9 @@ export interface SummerEventsSelect<T extends boolean = true> {
         featured?: T;
         link?: T;
         linkbutton?: T;
+        enableExternalRedirect?: T;
+        externalUrl?: T;
+        openInNewTab?: T;
       };
   formSettings?:
     | T

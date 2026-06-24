@@ -382,6 +382,36 @@ export const SummerFestEvents: CollectionConfig<'summer-events'> = {
                   'Enter the CTA button label (Example: "Book Now", "Register", "Buy Tickets")',
               },
             },
+            {
+              name: 'enableExternalRedirect',
+              type: 'checkbox',
+              label: 'Enable External Redirect',
+              defaultValue: false,
+              admin: {
+                description:
+                  'Enable this to redirect users to an external website instead of event details page',
+              },
+            },
+
+            {
+              name: 'externalUrl',
+              type: 'text',
+              label: 'External URL',
+              admin: {
+                condition: (_, siblingData) => siblingData?.enableExternalRedirect,
+                placeholder: 'https://example.com',
+                description: 'Enter full external URL',
+              },
+            },
+            {
+              name: 'openInNewTab',
+              type: 'checkbox',
+              label: 'Open in New Tab',
+              defaultValue: false,
+              admin: {
+                description: 'Open external link in a new tab',
+              },
+            },
           ],
         },
 

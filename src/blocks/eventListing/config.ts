@@ -65,5 +65,6 @@ export const EventListing: Block = {
         condition: (_, siblingData) => siblingData?.showViewAll,
       },
     },
+    
   ],
 }
