@@ -4,7 +4,7 @@ import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
 import React from 'react'
 import { cn } from 'src/utilities/ui'
-
+import { GoogleAnalytics } from '@next/third-parties/google'
 import { draftMode } from 'next/headers'
 import { AdminBar } from 'src/components/AdminBar'
 import { Providers } from 'src/providers'
@@ -39,6 +39,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           {children}
           <Footer />
         </Providers>
+        <GoogleAnalytics gaId="G-ZEMVJH3G2E" />
       </body>
     </html>
   )
