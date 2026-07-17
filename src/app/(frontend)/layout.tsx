@@ -4,7 +4,7 @@ import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
 import React from 'react'
 import { cn } from 'src/utilities/ui'
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
 import { draftMode } from 'next/headers'
 import { AdminBar } from 'src/components/AdminBar'
 import { Providers } from 'src/providers'
@@ -29,6 +29,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <link href="/favicon.ico" rel="icon" type="image/svg+xml" />
       </head>
       <body>
+        <GoogleTagManager gtmId="GTM-TR56GLF6" />
+        <GoogleAnalytics gaId="G-ZEMVJH3G2E" />
         <Providers>
           <AdminBar
             adminBarProps={{
@@ -39,7 +41,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           {children}
           <Footer />
         </Providers>
-        <GoogleAnalytics gaId="G-ZEMVJH3G2E" />
       </body>
     </html>
   )
