@@ -81,6 +81,9 @@ import EventRegistrationBlockComponent from './EventRegistrationForm/coponents'
 import { MediaCarouselBlock } from './MediaCarousel/Component'
 import { AboutSummerFestBlockComponent } from './AboutSummerFestBlock/Component'
 import FeaturedEventBlockComponent from './EventsDetails/Component'
+import { FestivalScheduleBlockComponent } from './FestivalSchedule/Component'
+import { VideoGalleryBlockComponent } from './videoGallery/Component'
+import { GalleryVisualDiaryBlockComponent } from './galleryVisualDiary/Component'
 
 /**
  * Map Payload blockType → React Component
@@ -100,7 +103,10 @@ const blockComponents: Record<string, React.FC<any>> = {
   eventRegistrationFormBlock: EventRegistrationBlockComponent,
   mediaCarousel: MediaCarouselBlock,
   aboutSummerFestBlock: AboutSummerFestBlockComponent,
-  EventDetailsBlock:FeaturedEventBlockComponent
+  eventDetailsBlock: FeaturedEventBlockComponent,
+  festivalScheduleBlock: FestivalScheduleBlockComponent,
+  videoGalleryBlock: VideoGalleryBlockComponent,
+  galleryVisualDiary:GalleryVisualDiaryBlockComponent
 }
 
 /**

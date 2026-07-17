@@ -49,18 +49,14 @@ export default function CodeBlock({ node }: any) {
     return (
       <iframe
         title="css-preview"
-        className="w-full min-h-[400px] rounded-2xl bg-white"
+        className="w-full min-h-[100%] bg-white"
         sandbox="allow-scripts"
         srcDoc={`
           <!DOCTYPE html>
           <html>
             <head>
               <style>
-                body{
-                  padding:40px;
-                  font-family:sans-serif;
-                }
-
+               
                 ${code}
               </style>
             </head>
@@ -87,7 +83,7 @@ export default function CodeBlock({ node }: any) {
         srcDoc={`
           <!DOCTYPE html>
           <html>
-            <body style="background:black;color:#00ff88;padding:20px;font-family:monospace;">
+            <body style="">
               <div id="output"></div>
 
               <script>
@@ -115,7 +111,7 @@ export default function CodeBlock({ node }: any) {
 
   /* ---------------- FALLBACK ---------------- */
   return (
-    <pre className="bg-black text-green-400 p-6 rounded-2xl my-10 overflow-auto">
+    <pre className="bg-black text-green-400 p-6 rounded-2xl my-10 ">
       <code>{code}</code>
     </pre>
   )

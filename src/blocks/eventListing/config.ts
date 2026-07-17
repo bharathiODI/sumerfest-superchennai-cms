@@ -1,4 +1,3 @@
-
 import type { Block } from 'payload'
 
 export const EventListing: Block = {
@@ -19,6 +18,13 @@ export const EventListing: Block = {
       type: 'text',
       label: 'Heading',
       defaultValue: 'Upcoming Events',
+    },
+
+    {
+      name: 'PastEventHeading',
+      type: 'text',
+      label: 'Past Events',
+      defaultValue: 'Past Events',
     },
 
     {
@@ -56,9 +62,9 @@ export const EventListing: Block = {
       label: 'View All Link',
       defaultValue: '/summer',
       admin: {
-        condition: (_, siblingData) =>
-          siblingData?.showViewAll,
+        condition: (_, siblingData) => siblingData?.showViewAll,
       },
     },
+    
   ],
 }

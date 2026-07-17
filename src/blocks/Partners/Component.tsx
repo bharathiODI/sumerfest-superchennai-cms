@@ -33,7 +33,7 @@ export const PartnerCarousel: React.FC<Props> = ({ title, subtitle, partners = [
   return (
     <div className="ourpartnerssssection bg-[#f5f5f5]">
       <section className="relative overflow-hidden py-20">
-        <div className='container max-w-7xl mx-auto px-4'>
+        <div className="container max-w-7xl mx-auto px-4">
           {/* BG */}
           <div className="absolute inset-0 " />
 
@@ -41,29 +41,10 @@ export const PartnerCarousel: React.FC<Props> = ({ title, subtitle, partners = [
             {/* HEADER */}
             {(title || subtitle) && (
               <div className="mx-auto mb-13 max-w-3xl text-center">
-                {/* {title && (
-              <motion.h2
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                transition={{
-                  duration: 0.5,
-                }}
-                className="text-sm font-extrabold tracking-widest text-[#061E43] flex items-center justify-center uppercase festmainheadingsss"
-              >
-                {title}
-              </motion.h2>
-            )} */}
-
                 <div className="mb-10 text-center">
                   <h3 className="text-sm font-extrabold tracking-widest text-[#005b70] flex items-center justify-center uppercase festmainheadingsss">
                     <WaveDecoration />
-                    OUR PROUD SPONSORS
+                    {title}
                     <WaveDecoration />
                   </h3>
                 </div>

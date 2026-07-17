@@ -12,7 +12,7 @@ export async function GET() {
     const events = await payload.find({
       collection: 'summer-events',
       depth: 2,
-      limit: 20,
+      pagination: false,
       sort: '-createdAt',
     })
 

@@ -1,5 +1,4 @@
 import { withPayload } from '@payloadcms/next/withPayload'
-
 import redirects from './redirects.js'
 
 const NEXT_PUBLIC_SERVER_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
@@ -19,13 +18,15 @@ const nextConfig = {
         }
       }),
       {
-        protocol: 'https',
-        hostname: 'demo.superchennai.com',
+        protocol: 'http',
+        hostname: 'localhost',
       },
+     
       {
         protocol: 'https',
         hostname: 'summerfest.superchennai.com',
       },
+
       // Instagram video thumbnail and video CDN domains
       {
         protocol: 'https',

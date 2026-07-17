@@ -42,7 +42,7 @@ export const MediaCarouselBlock: React.FC<Props> = ({ title, slides = [] }) => {
       >
         {slides.map((slide, i) => (
           <SwiperSlide key={i}>
-            <div className="relative h-[300px] md:h-[520px] lg:h-[700px] w-full overflow-hidden bg-black">
+            <div className="relative  w-full overflow-hidden bg-black">
               {/* ================= IMAGE ================= */}
               {slide.type === 'image' && (
                 <>
@@ -86,8 +86,6 @@ export const MediaCarouselBlock: React.FC<Props> = ({ title, slides = [] }) => {
                 </>
               )}
 
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
             </div>
           </SwiperSlide>
         ))}

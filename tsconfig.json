@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     /* Strictness */
+    //  "ignoreDeprecations": "6.0",
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
@@ -51,6 +52,7 @@
     "next.config.js",
     "next-sitemap.config.cjs"
 , "src/Header/test.jsx",
+ "**/*.d.ts",
 "next-env.d.ts", "**/*.ts", "**/*.tsx", "custom.d.ts"
 , "src/utilities/emailComponents"
   ],

@@ -32,6 +32,9 @@ import {
 } from '@payloadcms/richtext-lexical'
 import { EventRegistrationFormBlock } from '@/blocks/EventRegistrationForm/config'
 import { EventDetailsBlock } from '@/blocks/EventsDetails/config'
+import { FestivalScheduleBlock } from '@/blocks/FestivalSchedule/config'
+import { VideoGalleryBlock } from '@/blocks/videoGallery/config'
+import { GalleryVisualDiaryBlock } from '@/blocks/galleryVisualDiary/config'
 
 export const SummerFestEvents: CollectionConfig<'summer-events'> = {
   slug: 'summer-events',
@@ -106,6 +109,9 @@ export const SummerFestEvents: CollectionConfig<'summer-events'> = {
                         AboutEventBlock,
                         EventRegistrationFormBlock,
                         EventDetailsBlock,
+                        FestivalScheduleBlock,
+                        VideoGalleryBlock,
+                        GalleryVisualDiaryBlock,
                       ],
                     }),
                     FixedToolbarFeature(),
@@ -374,6 +380,36 @@ export const SummerFestEvents: CollectionConfig<'summer-events'> = {
                 placeholder: 'Buy Tickets / Book Now / Register',
                 description:
                   'Enter the CTA button label (Example: "Book Now", "Register", "Buy Tickets")',
+              },
+            },
+            {
+              name: 'enableExternalRedirect',
+              type: 'checkbox',
+              label: 'Enable External Redirect',
+              defaultValue: false,
+              admin: {
+                description:
+                  'Enable this to redirect users to an external website instead of event details page',
+              },
+            },
+
+            {
+              name: 'externalUrl',
+              type: 'text',
+              label: 'External URL',
+              admin: {
+                condition: (_, siblingData) => siblingData?.enableExternalRedirect,
+                placeholder: 'https://example.com',
+                description: 'Enter full external URL',
+              },
+            },
+            {
+              name: 'openInNewTab',
+              type: 'checkbox',
+              label: 'Open in New Tab',
+              defaultValue: false,
+              admin: {
+                description: 'Open external link in a new tab',
               },
             },
           ],

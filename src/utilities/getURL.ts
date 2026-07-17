@@ -14,6 +14,7 @@ export const getServerSideURL = () => {
   return url
 }
 
+
 export const getClientSideURL = () => {
   if (canUseDOM) {
     const protocol = window.location.protocol
